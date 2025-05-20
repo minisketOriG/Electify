@@ -8,6 +8,9 @@ import PageHeader from "../components/PageComponents/PageHeader";
 //icons
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
+//images
+import images from "../assets/utils";
+
 
 const Landingpage = () => {
 
@@ -16,11 +19,11 @@ const Landingpage = () => {
       <PageHeader type="landingPage" />
 
       <main>
-        <div className="flex items-center justify-center flex-col w-full h-[500px] bg-[url('images/heroImg.png')] bg-cover bg-center">
+        <div className={`flex items-center justify-center flex-col w-full h-[500px] bg-[url("${images.heroImg}")] bg-cover bg-center`}>
           <h1 className="font-titan text-black text-6xl"><span className="text-[#0C35BC]">ELECTiFY</span> DECiSiONS</h1>
           <h2 className="font-titan text-black text-6xl">THROUGH VOTES</h2>
 
-          <img src="images/electifyLogoBlack.png" alt="heroImg" className="w-[120px] h-[70px] my-10" />
+          <img src={images.electifyLogoBlack} alt="heroImg" className="w-[120px] h-[70px] my-10" />
 
           <p className="font-hachi text-black text-xl">Your number one readily available voting platform</p>
 
@@ -37,7 +40,7 @@ const Landingpage = () => {
             </section>
 
             <section>
-              <img src="images/ballotImg.png" alt="ballotImg" className="w-[250px] h-[300px]" />
+              <img src={images.ballotImg} alt="ballotImg" className="w-[250px] h-[300px]" />
             </section>
           </div>
         </div>
@@ -108,7 +111,7 @@ const Landingpage = () => {
             Our pay-as-you-go model ensure that you only <br /> spend according to what you want.
           </p>
 
-          <img className="w-[600px] h-[400px] " src="images/cardImg.png" alt="Credit Card " />
+          <img className="w-[600px] h-[400px] " src={images.cardImg} alt="Credit Card " />
 
           <p className="w-full text-center text-[#0C35BC] text-2xl font-semibold py-10">
             Pay as low as $0.5 for each added category and as low as <br /> $0.2 for each added contender

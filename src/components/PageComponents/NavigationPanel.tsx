@@ -15,7 +15,7 @@ const NavigationPanel = (props: NavigationPanelProps) => {
       <div className="flex items-center flex-col sticky left-0 top-0 bottom-0 bg-black w-[380px] h-full">
         <section className="flex justify-center items-center flex-col w-full mt-10">
           <img className="w-[120px] h-[120px] rounded-full border-4 border-white outline-4 outline-offset-8 outline-white/50"
-            src="images/avatarDemo.png" alt="" />
+            src="/images/avatarDemo.png" alt="" />
           <span className="text-white text-[15px] font-poppins font-semibold mt-8">LINDA ADUBEA</span>
         </section>
 
