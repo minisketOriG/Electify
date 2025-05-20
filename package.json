@@ -1,5 +1,5 @@
 {
-  "homepage": "https://minisketOriG.github.io/Electify",
+  "homepage": "https://minisketOriG.github.io/Electify/",
   "name": "reacttypescript",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages-clean && gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

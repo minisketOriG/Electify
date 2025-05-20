@@ -35,7 +35,7 @@ const PageFooter = () => {
     <footer>
          <div className="w-full h-fit bg-black p-5">
              <section className="flex items-center justify-start flex-row p-10">
-               <img className="w-[50px] h-[50px]" src="/src/assets/images/electifyLogo.png" alt="electifyLogo" />
+               <img className="w-[50px] h-[50px]" src="/images/electifyLogo.png" alt="electifyLogo" />
                <span className="font-bagel text-white text-3xl font-bold ml-[10px]">Electify</span>
              </section>
 

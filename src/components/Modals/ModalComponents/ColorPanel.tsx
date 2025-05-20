@@ -28,7 +28,7 @@ const ColorPanel = (props: EventColorPanelProps) => {
                 <p className="w-full my-2 font-poppins font-semibold text-[14px]">Event Flag Color</p>
 
                 <div className="flex justify-center items-center flex-row space-x-5">
-                    {colors.map((item, index) => (
+                    {colors?.map((item, index) => (
                         <span
                             key={index}
                             className={`w-[40px] h-[40px] bg-${item.color} rounded-full my-2 cursor-pointer ${selectedColor === index ? "outline-[#0C35BC] outline-4 outline-offset-4" : ""}`}

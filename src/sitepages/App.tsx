@@ -24,9 +24,9 @@ import ReportIssue from './clientpage/ReportIssue'
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.DEV ? '/' : '/Electify/'}>
       <Routes>
-        <Route index element={<Landingpage />} />
+        <Route path='/' element={<Landingpage />} />
 
         <Route path="auth">
           <Route path="signin" element={<SignInPage />} />

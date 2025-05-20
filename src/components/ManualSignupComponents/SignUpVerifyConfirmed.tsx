@@ -47,7 +47,7 @@ const SignUpVerifyConfirmed = (props: SignUpVerifyConfirmedProps) => {
           </p>
 
           <img className="w-[140px] h-[120px] py-5 my-5 animate-[pulse_2s_linear_infinite]"
-           src={props.isVerifySuccess ? "/src/assets/images/approveImg.png":"/src/assets/images/failedImg.png"}
+           src={props.isVerifySuccess ? "/images/approveImg.png":"/images/failedImg.png"}
            alt="linkLogo" />
 
           <p className="w-[90%] text-center text-black text-[12px] font-poppins font-regular">
