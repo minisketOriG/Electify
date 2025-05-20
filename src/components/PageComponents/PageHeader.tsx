@@ -21,7 +21,7 @@ const PageHeader = (props: PageHeaderProps) => {
       return (
         <>
           <span className="font-poppins text-[12px] text-white font-semibold">WELCOME, LINDA ADUBEA</span>
-          <img className="w-[30px] h-[30px]" src="/images/avatarDemo.png" alt="profilePic" />
+          <img className="w-[30px] h-[30px]" src="images/avatarDemo.png" alt="profilePic" />
           <HeaderButton text="Log out" icon={<IoLogOut className="w-[20px] h-[20px]" />} link="/auth/signup" action={true} />
         </>
       )
@@ -33,7 +33,7 @@ const PageHeader = (props: PageHeaderProps) => {
     <>
       <header className="bg-black sticky top-0 z-30 w-full h-auto py-4 flex items-center justify-between">
         <div className="flex items-center mx-5 space-x-5">
-          <img className="w-[40px] h-[40px]" src="/images/electifyLogo.png" alt="electifyLogo" />
+          <img className="w-[40px] h-[40px]" src="images/electifyLogo.png" alt="electifyLogo" />
           <h1 className="font-bagel text-2xl text-white">Electify</h1>
         </div>
         <div className="flex items-center mx-5 space-x-5">

@@ -8,12 +8,12 @@ const ColorPanel = (props: EventColorPanelProps) => {
     const [selectedColor, setSelectedColor] = useState<number>(0)
 
     const colors = [
-        { color: "[#0C35BC]" },
-        { color: "black" },
-        { color: "rose-500" },
-        { color: "green-500" },
-        { color: "amber-400" },
-        { color: "gray-500" }
+        { color: "bg-[#0C35BC]" },
+        { color: "bg-black" },
+        { color: "bg-rose-500" },
+        { color: "bg-green-500" },
+        { color: "bg-amber-400" },
+        { color: "bg-gray-500" }
     ]
 
     const handleColorSelect = (color: number) => {
@@ -31,7 +31,7 @@ const ColorPanel = (props: EventColorPanelProps) => {
                     {colors?.map((item, index) => (
                         <span
                             key={index}
-                            className={`w-[40px] h-[40px] bg-${item.color} rounded-full my-2 cursor-pointer ${selectedColor === index ? "outline-[#0C35BC] outline-4 outline-offset-4" : ""}`}
+                            className={`w-[40px] h-[40px] ${item.color} rounded-full my-2 cursor-pointer ${selectedColor === index ? "outline-[#0C35BC] outline-4 outline-offset-4" : ""}`}
                             onClick={() => handleColorSelect(index)}
                         ></span>
                     ))}

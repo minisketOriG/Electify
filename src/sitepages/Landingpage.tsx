@@ -20,7 +20,7 @@ const Landingpage = () => {
           <h1 className="font-titan text-black text-6xl"><span className="text-[#0C35BC]">ELECTiFY</span> DECiSiONS</h1>
           <h2 className="font-titan text-black text-6xl">THROUGH VOTES</h2>
 
-          <img src="/images/electifyLogoBlack.png" alt="heroImg" className="w-[120px] h-[70px] my-10" />
+          <img src="images/electifyLogoBlack.png" alt="heroImg" className="w-[120px] h-[70px] my-10" />
 
           <p className="font-hachi text-black text-xl">Your number one readily available voting platform</p>
 
@@ -37,7 +37,7 @@ const Landingpage = () => {
             </section>
 
             <section>
-              <img src="/images/ballotImg.png" alt="ballotImg" className="w-[250px] h-[300px]" />
+              <img src="images/ballotImg.png" alt="ballotImg" className="w-[250px] h-[300px]" />
             </section>
           </div>
         </div>
@@ -108,14 +108,14 @@ const Landingpage = () => {
             Our pay-as-you-go model ensure that you only <br /> spend according to what you want.
           </p>
 
-          <img className="w-[600px] h-[400px] " src="/images/cardImg.png" alt="Credit Card " />
+          <img className="w-[600px] h-[400px] " src="images/cardImg.png" alt="Credit Card " />
 
           <p className="w-full text-center text-[#0C35BC] text-2xl font-semibold py-10">
             Pay as low as $0.5 for each added category and as low as <br /> $0.2 for each added contender
           </p>
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center py-8 bg-[url('/images/heroImg.png')] bg-cover bg-center">
+        <div className="w-full flex flex-col items-center justify-center py-8 bg-[url('images/heroImg.png')] bg-cover bg-center">
           <p className="w-full font-titan text-center text-black text-4xl font-bold py-5">
             TO SET UP YOUR ACCOUNT AS A CLIENT
           </p>
