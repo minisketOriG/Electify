@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import AuthButton from "../ButtonComponents/AuthButton"
 import { useState } from "react"
 import { SignInIntroProps } from "../../interfaces/interfaces"
+import images from "../../assets/utils"
 
 
 
@@ -30,7 +31,7 @@ const SignInIntro = (props: SignInIntroProps) => {
     <>
       <div className="flex justify-center items-center flex-row p-4 w-[800px] h-full bg-gradient-to-r from-[#040405] to-[#5D5959] rounded-lg shadow-[0px_0px_10px_#0C35BC]">
         <section className="flex justify-center items-center flex-col w-1/2 h-full">
-          <img className="w-[50px] h-[50px] mb-5" src="images/electifyLogo.png" alt="electifyLogo" />
+          <img className="w-[50px] h-[50px] mb-5" src={images.electifyLogo} alt="electifyLogo" />
           <p className="text-white text-xl font-poppins font-bold">Sign Into Your Account</p>
 
           <div className="flex justify-center items-center flex-col w-full mt-15">

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6';
 
 import { SignUpVerifyProps } from '../../interfaces/interfaces';
+import images from '../../assets/utils';
 
 
 const SignUpVerify = (props: SignUpVerifyProps) => {
@@ -32,7 +33,7 @@ const SignUpVerify = (props: SignUpVerifyProps) => {
                   <section className="bg-white flex justify-center items-center flex-col w-full h-full rounded-md">
                     <p className="text-black text-xl font-poppins font-semibold">Verification Link Sent</p>
 
-                    <img className="w-[80px] h-[100px] py-5 my-5 animate-[pulse_2s_linear_infinite]" src="/images/linkImg.png" alt="linkLogo"/>
+                    <img className="w-[80px] h-[100px] py-5 my-5 animate-[pulse_2s_linear_infinite]" src={images.linkImg} alt="linkLogo"/>
                      
                      <p className="w-[90%] text-center text-black text-[12px] font-poppins font-regular">
                            Please check your email to confirm verification by clicking the

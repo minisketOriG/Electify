@@ -33,6 +33,11 @@
     
 }
 
+.landing-heroSection{
+  background-image: url(/src/assets/images/heroImg.png);
+  @apply flex items-center justify-center flex-col w-full h-[500px] bg-cover bg-center;
+}
+
 .landing-bullet-container {
     @apply flex flex-col items-center rounded-full outline-4 outline-offset-2 outline-[#0C35BC]/50;
 }

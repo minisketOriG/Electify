@@ -22,7 +22,7 @@ const PageHeader = (props: PageHeaderProps) => {
       return (
         <>
           <span className="font-poppins text-[12px] text-white font-semibold">WELCOME, LINDA ADUBEA</span>
-          <img className="w-[30px] h-[30px]" src="images/avatarDemo.png" alt="profilePic" />
+          <img className="w-[30px] h-[30px]" src={images.avatarDemo} alt="profilePic" />
           <HeaderButton text="Log out" icon={<IoLogOut className="w-[20px] h-[20px]" />} link="/auth/signup" action={true} />
         </>
       )

@@ -19,7 +19,7 @@ const Landingpage = () => {
       <PageHeader type="landingPage" />
 
       <main>
-        <div className={`flex items-center justify-center flex-col w-full h-[500px] bg-[url("${images.heroImg}")] bg-cover bg-center`}>
+        <div className="landing-heroSection">
           <h1 className="font-titan text-black text-6xl"><span className="text-[#0C35BC]">ELECTiFY</span> DECiSiONS</h1>
           <h2 className="font-titan text-black text-6xl">THROUGH VOTES</h2>
 

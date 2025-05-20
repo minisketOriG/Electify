@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa6"
 import { SignUpVerifyConfirmedProps } from "../../interfaces/interfaces";
+import images from "../../assets/utils";
 
 
 
@@ -47,7 +48,7 @@ const SignUpVerifyConfirmed = (props: SignUpVerifyConfirmedProps) => {
           </p>
 
           <img className="w-[140px] h-[120px] py-5 my-5 animate-[pulse_2s_linear_infinite]"
-           src={props.isVerifySuccess ? "/images/approveImg.png":"/images/failedImg.png"}
+           src={props.isVerifySuccess ? images.approveImg : images.failedImg}
            alt="linkLogo" />
 
           <p className="w-[90%] text-center text-black text-[12px] font-poppins font-regular">

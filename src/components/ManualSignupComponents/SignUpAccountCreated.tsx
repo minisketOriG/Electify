@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
+import images from '../../assets/utils';
 
 const SignUpAccountCreated = () => {
 
@@ -29,7 +30,7 @@ const SignUpAccountCreated = () => {
             <section className="bg-white flex justify-center items-center flex-col w-full h-full rounded-md">
             <p className="text-black text-xl font-poppins font-semibold">Account Created Successfully</p>
         
-            <img className="w-[100px] h-[110px] py-5 my-5 animate-[pulse_2s_linear_infinite]" src="/images/checkmarkImg.png" alt="linkLogo"/>
+            <img className="w-[100px] h-[110px] py-5 my-5 animate-[pulse_2s_linear_infinite]" src={images.checkmarkImg} alt="linkLogo"/>
                              
                  <p className="w-[90%] text-center text-black text-[12px] font-poppins font-regular">
                      You can now proceed to your dashboard

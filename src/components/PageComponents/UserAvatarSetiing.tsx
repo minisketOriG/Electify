@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6'
 import { MdModeEdit } from 'react-icons/md'
+import images from '../../assets/utils'
 
 const UserAvatarSetiing = () => {
 
@@ -37,7 +38,7 @@ const UserAvatarSetiing = () => {
                 <section className="flex justify-center items-center flex-col">
                     <div className="relative w-fit rounded-full outline-4 outline-offset-8 outline-black/50 overflow-hidden">
                         <img className="w-[180px] h-[180px] rounded-full border-4 border-black "
-                            src="images/avatarDemo.png" alt="avatarUser" ref={avatarHolderRef} />
+                            src={images.avatarDemo} alt="avatarUser" ref={avatarHolderRef} />
 
                         {isLoadingPic &&
                             <div className="bg-black/50 flex justify-center items-center absolute top-0 bottom-0 left-0 right-0">
