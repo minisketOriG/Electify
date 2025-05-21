@@ -18,7 +18,7 @@ const ContenderCard = (props: { name: string; age: number; role: string; votes: 
 
             <section className="w-full flex justify-between items-center py-1 px-2 font-poppins font-bold text-[14px]">
                 <span>{props.votes} votes</span>
-                <span>{props.percentage}%</span>
+                <span>{props.percentage}</span>
             </section>
 
             <section className="w-full flex justify-center items-center">

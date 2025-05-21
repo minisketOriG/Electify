@@ -5,7 +5,7 @@ import { IoLogInSharp, IoLogOut } from 'react-icons/io5'
 import HeaderButton from '../ButtonComponents/HeaderButton'
 import { PageHeaderProps } from '../../interfaces/interfaces'
 import React from 'react'
-import images from '../../assets/utils'
+import images from '../../utils/AssetsUtils'
 
 
 const PageHeader = (props: PageHeaderProps) => {

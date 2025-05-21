@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa6"
 import { SignUpVerifyConfirmedProps } from "../../interfaces/interfaces";
-import images from "../../assets/utils";
+import images from "../../utils/AssetsUtils";
 
 
 
@@ -48,8 +48,8 @@ const SignUpVerifyConfirmed = (props: SignUpVerifyConfirmedProps) => {
           </p>
 
           <img className="w-[140px] h-[120px] py-5 my-5 animate-[pulse_2s_linear_infinite]"
-           src={props.isVerifySuccess ? images.approveImg : images.failedImg}
-           alt="linkLogo" />
+            src={props.isVerifySuccess ? images.approveImg : images.failedImg}
+            alt="linkLogo" />
 
           <p className="w-[90%] text-center text-black text-[12px] font-poppins font-regular">
             {props.isVerifySuccess ? "You can now proceed to set your account credentials" : "Please confirm email and try again to verify your account"}
@@ -59,7 +59,7 @@ const SignUpVerifyConfirmed = (props: SignUpVerifyConfirmedProps) => {
                           disabled:opacity-80 disabled:pointer-events-none hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-300"
             onClick={props.isVerifySuccess ? handleSignUpVerify : handleSignUpVerifyRetry} disabled={isDisabled}>
             {isLoading && <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" />}
-            {props.isVerifySuccess ? "Set Account Credentials":"Retry Verification"}
+            {props.isVerifySuccess ? "Set Account Credentials" : "Retry Verification"}
           </button>
         </section>
       </div>

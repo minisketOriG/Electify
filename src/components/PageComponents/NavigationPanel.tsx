@@ -6,7 +6,7 @@ import { AiOutlineTransaction } from "react-icons/ai"
 import NavigationButton from "../ButtonComponents/NavigationButton";
 import { NavigationPanelProps } from "../../interfaces/interfaces";
 import { TbMessageReportFilled } from "react-icons/tb";
-import images from "../../assets/utils";
+import images from "../../utils/AssetsUtils";
 
 
 

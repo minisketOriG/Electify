@@ -3,9 +3,11 @@ import CategoryCard from "../../components/EventComponents/CategoryCard"
 import NavigationPanel from "../../components/PageComponents/NavigationPanel"
 import PageHeader from "../../components/PageComponents/PageHeader"
 
-import { FaArrowTrendUp, FaArrowLeft } from "react-icons/fa6";
+import { FaArrowTrendUp, FaArrowLeft, FaSpinner } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import { useState } from "react";
+import CreateCategoty from "../../components/Modals/CategoryModals/CreateCategoty";
 
 
 const VotingEventCategories = () => {
@@ -15,8 +17,16 @@ const VotingEventCategories = () => {
     navigate(-1)
   }
 
-  const handleAddCategory = () => {
-    console.log("Add new category clicked");
+  const [isCreateCatShowLoading, setIsCreateCatShowLoading] = useState<boolean>(false)
+  const [isShowCatCreate, setIsShowCatCreate] = useState<boolean>(false)
+
+  const showCreateCategory = () => {
+    setIsCreateCatShowLoading(true)
+
+    setTimeout(() => {
+      setIsCreateCatShowLoading(false)
+      setIsShowCatCreate(true)
+    }, 1000)
   }
 
 
@@ -45,15 +55,18 @@ const VotingEventCategories = () => {
               <div className="flex items-center my-8 flew-row font-poppins font-bold text-[14px] text-red-500">
                 <BsFillInfoCircleFill className="mr-2" />
                 This event is closed for voting
-              </div> 
+              </div>
 
               <div className="w-full flex justify-center items-center my-5 space-x-5">
-                <button onClick={handleAddCategory} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showCreateCategory} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
-                  <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
+                  {isCreateCatShowLoading ?
+                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> : 
+                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" /> 
+                  }
                   Add new category
                 </button>
-                <button onClick={() => { /* View event metrics logic */ }} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={() => { /* View event metrics logic */ }} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   <FaArrowTrendUp className="w-[30px] h-[30px] mr-5" />
                   View Event Metrics
@@ -74,6 +87,10 @@ const VotingEventCategories = () => {
           </div>
         </main>
       </div>
+
+      {/* Modals */}
+
+      {isShowCatCreate && <CreateCategoty setIsShowCatCreate={setIsShowCatCreate} />}
     </>
   )
 }

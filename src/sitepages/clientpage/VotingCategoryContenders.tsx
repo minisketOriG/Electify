@@ -6,7 +6,7 @@ import { IoMdAddCircle } from 'react-icons/io'
 import NavigationPanel from '../../components/PageComponents/NavigationPanel'
 import PageHeader from '../../components/PageComponents/PageHeader'
 import { useNavigate } from 'react-router-dom'
-import images from '../../assets/utils'
+import images from '../../utils/AssetsUtils'
 
 
 const VotingCategoryContenders = () => {

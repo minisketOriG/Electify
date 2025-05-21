@@ -1,10 +1,10 @@
 
 
 import { IoClose, IoSettingsSharp } from 'react-icons/io5'
-import { EventSettingsProps } from '../../interfaces/interfaces'
+import { EventSettingsProps } from '../../../interfaces/interfaces'
 import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6'
-import ColorPanel from './ModalComponents/ColorPanel'
+import ColorPanel from './ColorPanel'
 
 
 const EventSettings = (props: EventSettingsProps) => {
@@ -59,13 +59,13 @@ const EventSettings = (props: EventSettingsProps) => {
 
                     <hr className="w-full border-2 border-[#0C35BC] mt-2" />
 
-                    <section className="w-[95%] flex justify-center items-center flex-col mt-4">
+                    <section className="w-[95%] flex justify-center items-center flex-col mt-2">
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Event Name</p>
                         <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Event Name" />
                     </section>
 
 
-                    <ColorPanel selectedFlagColor={selectedFlagColor} setSelectedFlagColor={setSelectedFlagColor}/>
+                    <ColorPanel selectedFlagColor={selectedFlagColor} setSelectedFlagColor={setSelectedFlagColor} />
 
 
                     {props.eventTiming ?

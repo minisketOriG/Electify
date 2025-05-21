@@ -1,7 +1,7 @@
 
 import { useRef, useState } from "react"
 import { IoClose, IoShareSocialSharp } from "react-icons/io5"
-import { EventShareProps } from "../../interfaces/interfaces"
+import { EventShareProps } from "../../../interfaces/interfaces"
 import { Link } from "react-router-dom"
 import { FaInstagram, FaFacebook, FaXTwitter, FaWhatsapp, FaCopy, FaCircleCheck, FaSpinner } from "react-icons/fa6";
 
@@ -19,17 +19,17 @@ const EventShareCard = (props: EventShareProps) => {
 
     const handleLinkCopy = () => {
         setIsLoadingCopy(true)
-       
-        setTimeout(()=>{
-            navigator.clipboard.writeText(linkRef.current?.textContent as string).then(()=>{
+
+        setTimeout(() => {
+            navigator.clipboard.writeText(linkRef.current?.textContent as string).then(() => {
                 setIsLoadingCopy(false)
                 setIsCopied(true)
-                
-                setTimeout(()=>{
-                 setIsCopied(false)
-                },2000)
+
+                setTimeout(() => {
+                    setIsCopied(false)
+                }, 2000)
             })
-        },2000)
+        }, 2000)
     }
 
     return (
@@ -75,10 +75,10 @@ const EventShareCard = (props: EventShareProps) => {
                         <span ref={linkRef} className="w-[90%] font-poppins text-[14px] font-semibold text-center text-nowrap text-ellipsis overflow-hidden">https://example.com/bd2yu237dsda9d/2893e2893</span>
                         <button onClick={handleLinkCopy} className="text-black rounded group">
                             {isLoadCopy ?
-                             <FaSpinner className="w-[18px] h-[18px] text-[#0C35BC] animate-spin" /> :
-                                    isCopied ?
-                                    <FaCircleCheck className="w-[20px] h-[20px] text-[#0C35BC]" />  :
-                                        <FaCopy className="w-[20px] h-[20px] text-[#0C35BC] group-hover:scale-[0.8]" />
+                                <FaSpinner className="w-[18px] h-[18px] text-[#0C35BC] animate-spin" /> :
+                                isCopied ?
+                                    <FaCircleCheck className="w-[20px] h-[20px] text-[#0C35BC]" /> :
+                                    <FaCopy className="w-[20px] h-[20px] text-[#0C35BC] group-hover:scale-[0.8]" />
                             }
                         </button>
                     </div>

@@ -56,12 +56,12 @@ export interface SignInIntroProps{
     setIsSuccessful: (isVerify: boolean) => void;
 }
 
-export interface EventStatCardProps{
+export interface RevenueStatCardProps{
     title: string;
     amount: number;
 }
 
-export interface RevenueStatCardProps{
+export interface EventStatCardProps{
     title: string;
     amount: number;
 }
@@ -90,4 +90,8 @@ export interface EventSettingsProps{
 export interface EventColorPanelProps{
     selectedFlagColor: number;
     setSelectedFlagColor: (selectedFlagColor: number) => void;
+}
+
+export interface CreateCategoryProps{
+    setIsShowCatCreate: (isShowCatCreate: boolean) => void;
 }

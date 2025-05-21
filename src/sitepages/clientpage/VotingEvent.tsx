@@ -1,14 +1,17 @@
 
-import NavigationPanel from '../../components/PageComponents/NavigationPanel'
-import PageHeader from '../../components/PageComponents/PageHeader'
-
-import { IoMdAddCircle } from "react-icons/io";
-import EventCard from '../../components/EventComponents/EventCard';
-import CreateEvent from '../../components/Modals/CreateEvent';
 import { useState } from 'react';
+
+//icons
+import { IoMdAddCircle } from 'react-icons/io';
 import { FaSpinner } from 'react-icons/fa6';
-import EventSettings from '../../components/Modals/EventSettings';
-import EventShareCard from '../../components/Modals/EventShareCard';
+
+//components
+import NavigationPanel from '@/components/PageComponents/NavigationPanel';
+import PageHeader from '@/components/PageComponents/PageHeader';
+import EventCard from '@/components/EventComponents/EventCard';
+import CreateEvent from '@/components/Modals/EventModals/CreateEvent';
+import EventSettings from '@/components/Modals/EventModals/EventSettings';
+import EventShareCard from '@/components/Modals/EventModals/EventShareCard';
 
 
 const VotingEvent = () => {
@@ -28,8 +31,8 @@ const VotingEvent = () => {
   const [eventTiming, setEventTiming] = useState<boolean>(false)
   const [isShowSettings, setIsShowSettings] = useState<boolean>(false)
   const [isShowShare, setIsShowShare] = useState<boolean>(false)
-  
-  
+
+
 
 
   return (
@@ -48,9 +51,9 @@ const VotingEvent = () => {
               <div className="w-full flex justify-center items-center mt-10">
                 <button onClick={showCreateEvent} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                    text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
-                  { isCreateShowLoading ?
+                  {isCreateShowLoading ?
                     <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
-                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" /> 
+                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
                   }
                   Create a new event
                 </button>
@@ -62,15 +65,15 @@ const VotingEvent = () => {
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
                   <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
                   <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
-                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings}/>
+                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
                 </section>
 
                 <h2 className="text-[16px] py-5 font-poppins font-semibold">Closed Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
-                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings}/>
-                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings}/>
-                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings}/>
+                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
+                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
+                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
                 </section>
               </div>
             </div>
@@ -80,7 +83,7 @@ const VotingEvent = () => {
 
       {/*Modals*/}
       {isShowCreate && <CreateEvent setIsCreateShow={setIsShowCreate} />}
-      {isShowSettings && <EventSettings eventTiming={eventTiming}  setIsShowSettings={setIsShowSettings}/>}
+      {isShowSettings && <EventSettings eventTiming={eventTiming} setIsShowSettings={setIsShowSettings} />}
       {isShowShare && <EventShareCard setIsShowShare={setIsShowShare} />}
     </>
   )

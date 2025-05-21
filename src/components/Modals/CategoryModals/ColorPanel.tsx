@@ -1,21 +1,12 @@
 
 import { useState } from "react"
 import { EventColorPanelProps } from "../../../interfaces/interfaces"
+import { colors } from "../../../utils/DataUtils"
 
 
 const ColorPanel = (props: EventColorPanelProps) => {
 
     const [selectedColor, setSelectedColor] = useState<number>(0)
-
-    const colors = [
-        { color: "bg-[#0C35BC]" },
-        { color: "bg-black" },
-        { color: "bg-rose-500" },
-        { color: "bg-green-500" },
-        { color: "bg-amber-400" },
-        { color: "bg-gray-500" },
-        { color: "bg-teal-500" },
-    ]
 
     const handleColorSelect = (color: number) => {
         setSelectedColor(color);
@@ -26,7 +17,7 @@ const ColorPanel = (props: EventColorPanelProps) => {
     return (
         <>
             <section className="w-[95%] flex justify-center items-center flex-col mt-2">
-                <p className="w-full my-2 font-poppins font-semibold text-[14px]">Event Flag Color</p>
+                <p className="w-full my-2 font-poppins font-semibold text-[14px]">Category Mark Color</p>
 
                 <div className="flex justify-center items-center flex-row space-x-5">
                     {colors?.map((item, index) => (

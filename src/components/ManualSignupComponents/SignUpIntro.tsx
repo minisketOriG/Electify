@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import AuthButton from '../ButtonComponents/AuthButton'
 
 import { SignUpIntroProps } from '../../interfaces/interfaces';
-import images from '../../assets/utils'
+import images from '../../utils/AssetsUtils'
 
 
 const SignUpIntro = (props: SignUpIntroProps) => {
