@@ -71,7 +71,7 @@ const EventShareCard = (props: EventShareProps) => {
                         </Link>
                     </div>
 
-                    <div className="w-full flex justify-center items-center space-x-5 p-3 bg-gray-200 mt-5 rounded-[10px] border-2 border-gray-400">
+                    <div className="w-full flex justify-center items-center space-x-5 p-3 bg-gray-200 mt-5 mb-2 rounded-[10px] border-2 border-gray-400">
                         <span ref={linkRef} className="w-[90%] font-poppins text-[14px] font-semibold text-center text-nowrap text-ellipsis overflow-hidden">https://example.com/bd2yu237dsda9d/2893e2893</span>
                         <button onClick={handleLinkCopy} className="text-black rounded group">
                             {isLoadCopy ?

@@ -13,7 +13,8 @@ const ColorPanel = (props: EventColorPanelProps) => {
         { color: "bg-rose-500" },
         { color: "bg-green-500" },
         { color: "bg-amber-400" },
-        { color: "bg-gray-500" }
+        { color: "bg-gray-500" },
+        { color: "bg-teal-500" },
     ]
 
     const handleColorSelect = (color: number) => {

@@ -42,7 +42,7 @@ const VotingEventCategories = () => {
                 This event is scheduled for 2nd, June, 2018 : 10:00 AM
               </div>
 
-              <div className="flex items-center my-8 flew-row font-poppins font-bold text-[14px] text-[#0C35BC]">
+              <div className="flex items-center my-8 flew-row font-poppins font-bold text-[14px] text-red-500">
                 <BsFillInfoCircleFill className="mr-2" />
                 This event is closed for voting
               </div> 
