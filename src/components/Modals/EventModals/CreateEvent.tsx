@@ -27,9 +27,9 @@ const CreateEvent = (props: CreateEventProps) => {
         <>
             <div className="absolute top-0 bottom-0 left-0 right-0 z-50 bg-black/50
                 flex justify-center items-center">
-                <div className="relative w-[450px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
+                <div className="relative w-[550px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
 
-                    <div onClick={closeCreateEvent} className="bg-white absolute top-[-10px] right-[-50px] w-[40px] h-[40px] flex justify-center items-center
+                    <div onClick={closeCreateEvent} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                         rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
                         <IoClose className="w-[25px] h-[25px]" />
                     </div>

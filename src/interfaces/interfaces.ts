@@ -95,3 +95,7 @@ export interface EventColorPanelProps{
 export interface CreateCategoryProps{
     setIsShowCatCreate: (isShowCatCreate: boolean) => void;
 }
+
+export interface AddVariableProps{
+    setIsShowVariableAdd: (isShowVariableAdd: boolean) => void;
+}

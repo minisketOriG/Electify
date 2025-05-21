@@ -1,14 +1,15 @@
 
 
 export enum vartype {
-    text = "string",
+    text = "text",
     number = "number",
-    email = "email"
+    email = "email",
+    default = "default"
 }
 
 export enum reqtype {
-    default,
-    optional,
-    required
+    default = "default",
+    optional = "optional",
+    required = "required"
 }
 

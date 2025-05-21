@@ -33,8 +33,6 @@ const VotingEvent = () => {
   const [isShowShare, setIsShowShare] = useState<boolean>(false)
 
 
-
-
   return (
     <>
       <div className="flex flex-col w-full h-screen overflow-hidden">
