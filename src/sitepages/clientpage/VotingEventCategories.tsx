@@ -1,16 +1,25 @@
-import { IoMdAddCircle } from "react-icons/io"
-import CategoryCard from "../../components/EventComponents/CategoryCard"
-import NavigationPanel from "../../components/PageComponents/NavigationPanel"
-import PageHeader from "../../components/PageComponents/PageHeader"
 
-import { FaArrowTrendUp, FaArrowLeft, FaSpinner } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import { BsFillInfoCircleFill } from "react-icons/bs";
 import { useState } from "react";
-import CreateCategoty from "../../components/Modals/CategoryModals/CreateCategoty";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetContenderVariables } from "@/store/DataSlides/ContenderVarSlide";
+
+//icons
+import { IoMdAddCircle } from "react-icons/io"
+import { FaArrowTrendUp, FaArrowLeft, FaSpinner } from "react-icons/fa6";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+
+//components
+import CategoryCard from "@/components/EventComponents/CategoryCard"
+import NavigationPanel from "@/components/PageComponents/NavigationPanel"
+import PageHeader from "@/components/PageComponents/PageHeader"
+import CreateCategoty from "@/components/Modals/CategoryModals/CreateCategoty";
+
 
 
 const VotingEventCategories = () => {
+
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
   const handleNavigate = () => {
@@ -22,6 +31,8 @@ const VotingEventCategories = () => {
 
   const showCreateCategory = () => {
     setIsCreateCatShowLoading(true)
+
+    dispatch(resetContenderVariables())
 
     setTimeout(() => {
       setIsCreateCatShowLoading(false)

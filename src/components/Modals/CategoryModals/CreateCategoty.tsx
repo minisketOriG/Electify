@@ -7,6 +7,8 @@ import { removeContenderVariable } from "@/store/DataSlides/ContenderVarSlide"
 import { IoClose, IoCloseCircle } from "react-icons/io5"
 import { BiSolidCategoryAlt } from "react-icons/bi"
 import { IoMdAddCircleOutline } from "react-icons/io"
+import { FaSpinner } from "react-icons/fa6"
+import { MdModeEdit } from "react-icons/md"
 
 //associates
 import { reqtype } from "@/interfaces/enums"
@@ -15,8 +17,7 @@ import { CreateCategoryProps } from "@/interfaces/interfaces"
 //components
 import ColorPanel from "./ColorPanel"
 import AddVariable from "./AddVariable"
-import { FaSpinner } from "react-icons/fa6"
-import { MdModeEdit } from "react-icons/md"
+import EditVariable from "./EditVariable"
 
 
 
@@ -44,6 +45,14 @@ const CreateCategoty = (props: CreateCategoryProps) => {
 
     const handleAddVariable = () => {
         setIsShowVariableAdd(true)
+    }
+
+    const [isShowVariableEdit, setIsShowVariableEdit] = useState<boolean>(false)
+    const [variableId, setVariableId] = useState<number>(-1)
+
+    const handleEditVariable = (id: number) => {
+        setVariableId(id)
+        setIsShowVariableEdit(true)
     }
 
     return (
@@ -86,7 +95,7 @@ const CreateCategoty = (props: CreateCategoryProps) => {
                                     <p key={item.id} className="bg-[#0C35BC] m-1 py-1 px-2 flex items-center flex-row font-poppins text-[12px] text-white rounded-[5px]">
                                         <span className="font-bold">{item.name} {"·"}</span>
                                         <span className="font-medium">[{item.requirement} {item.type}]</span>
-                                        <MdModeEdit className="w-[18px] h-[18px] cursor-pointer mx-1" />
+                                        <MdModeEdit className="w-[18px] h-[18px] cursor-pointer mx-1" onClick={() => handleEditVariable(item.id)} />
                                         {item.requirement !== reqtype.default && <IoCloseCircle onClick={() => dispatch(removeContenderVariable(item.id))} className="w-[18px] h-[18px] cursor-pointer" />}
                                     </p>
                                 )
@@ -105,6 +114,8 @@ const CreateCategoty = (props: CreateCategoryProps) => {
 
                     {/* Variable Modals */}
                     {isShowVariableAdd && <AddVariable setIsShowVariableAdd={setIsShowVariableAdd} />}
+                    {isShowVariableEdit && <EditVariable variableId={variableId} setIsShowVariableEdit={setIsShowVariableEdit} />}
+
                 </div>
             </div>
         </>

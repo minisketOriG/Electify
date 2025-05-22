@@ -99,3 +99,8 @@ export interface CreateCategoryProps{
 export interface AddVariableProps{
     setIsShowVariableAdd: (isShowVariableAdd: boolean) => void;
 }
+
+export interface EditVariableProps{
+    variableId: number;
+    setIsShowVariableEdit: (isShowVariableEdit: boolean) => void;
+}

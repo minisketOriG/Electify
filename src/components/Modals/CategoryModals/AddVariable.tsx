@@ -77,7 +77,7 @@ const AddVariable = (props: AddVariableProps) => {
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Variable Type</p>
                         <select ref={variableTypeRef} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2">
-                            <option>Set Variable Type</option>
+                            <option value="">Set Variable Type</option>
 
                             {Object.values(vartype).map((type, index) => (
                                 <option key={index} value={type}>{type}</option>
@@ -88,7 +88,7 @@ const AddVariable = (props: AddVariableProps) => {
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Requirement Type</p>
                         <select ref={requirementTypeRef} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2">
-                            <option>Set Requirement Type</option>
+                            <option value="">Set Requirement Type</option>
 
                             {Object.values(reqtype).map((type, index) => (
                                  type !== reqtype.default &&  <option key={index} value={type}>{type}</option>
