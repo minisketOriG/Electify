@@ -1,8 +1,9 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetContenderVariables } from "@/store/DataSlides/ContenderVarSlide";
+import { setShowCreate } from "@/store/DataSlides/CategoryPageStatesSlide";
 
 //icons
 import { IoMdAddCircle } from "react-icons/io"
@@ -16,9 +17,9 @@ import PageHeader from "@/components/PageComponents/PageHeader"
 import CreateCategoty from "@/components/Modals/CategoryModals/CreateCategoty";
 
 
-
 const VotingEventCategories = () => {
 
+  const categoryStates = useSelector((state: any) => state.categorypage.categoryPageStates)
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ const VotingEventCategories = () => {
   }
 
   const [isCreateCatShowLoading, setIsCreateCatShowLoading] = useState<boolean>(false)
-  const [isShowCatCreate, setIsShowCatCreate] = useState<boolean>(false)
+ 
 
   const showCreateCategory = () => {
     setIsCreateCatShowLoading(true)
@@ -36,7 +37,7 @@ const VotingEventCategories = () => {
 
     setTimeout(() => {
       setIsCreateCatShowLoading(false)
-      setIsShowCatCreate(true)
+      dispatch(setShowCreate(true))
     }, 1000)
   }
 
@@ -101,7 +102,7 @@ const VotingEventCategories = () => {
 
       {/* Modals */}
 
-      {isShowCatCreate && <CreateCategoty setIsShowCatCreate={setIsShowCatCreate} />}
+      {categoryStates.showCreate && <CreateCategoty />}
     </>
   )
 }

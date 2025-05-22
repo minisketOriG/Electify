@@ -2,11 +2,14 @@
 
 import { useState } from 'react'
 import { FaBookmark, FaSpinner } from 'react-icons/fa6'
-import { CreateEventProps } from '../../../interfaces/interfaces'
 import { IoClose } from "react-icons/io5";
 import ColorPanel from './ColorPanel';
+import { useDispatch } from 'react-redux';
+import { setShowCreate } from '@/store/DataSlides/EventPageStatesSlide';
 
-const CreateEvent = (props: CreateEventProps) => {
+const CreateEvent = () => {
+
+    const dispatch = useDispatch()
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [selectedFlagColor, setSelectedFlagColor] = useState<number>(0)
@@ -19,9 +22,6 @@ const CreateEvent = (props: CreateEventProps) => {
         }, 3000)
     }
 
-    const closeCreateEvent = () => {
-        props.setIsCreateShow(false)
-    }
 
     return (
         <>
@@ -29,7 +29,7 @@ const CreateEvent = (props: CreateEventProps) => {
                 flex justify-center items-center">
                 <div className="relative w-[500px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
 
-                    <div onClick={closeCreateEvent} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
+                    <div onClick={() => dispatch(setShowCreate(false))} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                         rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
                         <IoClose className="w-[25px] h-[25px]" />
                     </div>

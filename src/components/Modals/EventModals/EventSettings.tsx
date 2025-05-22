@@ -1,17 +1,17 @@
 
 
 import { IoClose, IoSettingsSharp } from 'react-icons/io5'
-import { EventSettingsProps } from '../../../interfaces/interfaces'
 import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6'
 import ColorPanel from './ColorPanel'
+import { useDispatch, useSelector } from 'react-redux'
+import { setShowSettings } from '@/store/DataSlides/EventPageStatesSlide'
 
 
-const EventSettings = (props: EventSettingsProps) => {
+const EventSettings = () => {
 
-    const closeSettings = () => {
-        props.setIsShowSettings(false)
-    }
+    const pageStates = useSelector((state: any) => state.eventpage.eventPageStates)
+    const dispatch = useDispatch()
 
     //Check Button handler
     const [isOpenCloseEvent, setisOpenCloseEvent] = useState<boolean>(false)
@@ -47,7 +47,7 @@ const EventSettings = (props: EventSettingsProps) => {
                       flex justify-center items-center">
                 <div className="relative w-[500px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
 
-                    <div onClick={closeSettings} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
+                    <div onClick={() => dispatch(setShowSettings(false)) } className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                               rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
                         <IoClose className="w-[25px] h-[25px]" />
                     </div>
@@ -68,7 +68,7 @@ const EventSettings = (props: EventSettingsProps) => {
                     <ColorPanel selectedFlagColor={selectedFlagColor} setSelectedFlagColor={setSelectedFlagColor} />
 
 
-                    {props.eventTiming ?
+                    {pageStates.eventTiming ?
                         <section className="w-[95%] flex justify-center items-center flex-col mt-2">
                             <p className="w-full my-2 font-poppins font-semibold text-[14px]">Event Scheduling</p>
 
@@ -93,7 +93,7 @@ const EventSettings = (props: EventSettingsProps) => {
                     }
 
                     <section className="w-[95%] flex justify-center items-center flex-col mt-8 mb-2">
-                        <button onClick={props.eventTiming ? handleScheduledEventChanges : handleUnscheduledEventChanges} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
+                        <button onClick={pageStates.eventTiming ? handleScheduledEventChanges : handleUnscheduledEventChanges} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                                                 text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[12px] hover:text-[#0C35BC] transition-all duration-200">
                             {isLoading && <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" />}
                             Save Event Changes

@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { reqtype, vartype } from "@/interfaces/enums"
 
-export const contenderVarSlice = createSlice({
+const contenderVarSlice = createSlice({
     name: 'contenderVariables',
     initialState: {
         contenderVariables: [
@@ -22,7 +22,7 @@ export const contenderVarSlice = createSlice({
             state.contenderVariables.push(newVariable);
         },
         removeContenderVariable: (state, action) => {
-            const id  = action.payload;
+            const id = action.payload;
             state.contenderVariables = state.contenderVariables.filter(variable => variable.id !== id);
         },
         editContenderVariable: (state, action) => {

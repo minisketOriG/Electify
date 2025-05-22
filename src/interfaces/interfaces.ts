@@ -69,22 +69,6 @@ export interface EventStatCardProps{
 export interface EventCardProps{
     eventType: string;
     eventTiming: boolean;
-    setEventTiming: (eventTiming: boolean) => void;
-    setIsShowSettings: (isShowSettings: boolean) => void;
-    setIsShowShare: (isShowShare: boolean) => void;
-}
-
-export interface CreateEventProps{
-    setIsCreateShow: (isCreateShow: boolean) => void
-}
-
-export interface EventShareProps{
-    setIsShowShare: (isShowShare: boolean) => void
-}
-
-export interface EventSettingsProps{
-    eventTiming: boolean;
-    setIsShowSettings: (isShowSettings: boolean) => void;
 }
 
 export interface EventColorPanelProps{
@@ -92,9 +76,6 @@ export interface EventColorPanelProps{
     setSelectedFlagColor: (selectedFlagColor: number) => void;
 }
 
-export interface CreateCategoryProps{
-    setIsShowCatCreate: (isShowCatCreate: boolean) => void;
-}
 
 export interface AddVariableProps{
     setIsShowVariableAdd: (isShowVariableAdd: boolean) => void;

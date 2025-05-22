@@ -1,21 +1,20 @@
 
 import { useRef, useState } from "react"
 import { IoClose, IoShareSocialSharp } from "react-icons/io5"
-import { EventShareProps } from "../../../interfaces/interfaces"
 import { Link } from "react-router-dom"
 import { FaInstagram, FaFacebook, FaXTwitter, FaWhatsapp, FaCopy, FaCircleCheck, FaSpinner } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { setShowShare } from "@/store/DataSlides/EventPageStatesSlide";
 
 
-const EventShareCard = (props: EventShareProps) => {
+const EventShareCard = () => {
+
+    const dispatch = useDispatch()
 
     const linkRef = useRef<HTMLSpanElement | null>(null)
 
     const [isLoadCopy, setIsLoadingCopy] = useState(false)
     const [isCopied, setIsCopied] = useState(false)
-
-    const closeCreateEvent = () => {
-        props.setIsShowShare(false)
-    }
 
     const handleLinkCopy = () => {
         setIsLoadingCopy(true)
@@ -37,7 +36,7 @@ const EventShareCard = (props: EventShareProps) => {
             <div className="absolute top-0 bottom-0 left-0 right-0 z-50 bg-black/50 flex justify-center items-center">
                 <div className="relative w-[500px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
 
-                    <div onClick={closeCreateEvent} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
+                    <div onClick={() => dispatch(setShowShare(false))} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                                          rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
                         <IoClose className="w-[25px] h-[25px]" />
                     </div>

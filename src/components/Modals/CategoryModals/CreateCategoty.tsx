@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { removeContenderVariable } from "@/store/DataSlides/ContenderVarSlide"
+import { setShowCreate } from "@/store/DataSlides/CategoryPageStatesSlide"
 
 //icons
 import { IoClose, IoCloseCircle } from "react-icons/io5"
@@ -12,7 +13,6 @@ import { MdModeEdit } from "react-icons/md"
 
 //associates
 import { reqtype } from "@/interfaces/enums"
-import { CreateCategoryProps } from "@/interfaces/interfaces"
 
 //components
 import ColorPanel from "./ColorPanel"
@@ -21,14 +21,11 @@ import EditVariable from "./EditVariable"
 
 
 
-const CreateCategoty = (props: CreateCategoryProps) => {
+const CreateCategoty = () => {
 
-    const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
     const dispatch = useDispatch()
+    const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
 
-    const closeCreateEvent = () => {
-        props.setIsShowCatCreate(false)
-    }
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [selectedFlagColor, setSelectedFlagColor] = useState<number>(0)
@@ -61,7 +58,7 @@ const CreateCategoty = (props: CreateCategoryProps) => {
                             flex justify-center items-center">
                 <div className="relative w-[500px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
 
-                    <div onClick={closeCreateEvent} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
+                    <div onClick={() => dispatch(setShowCreate(false))} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                                     rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
                         <IoClose className="w-[25px] h-[25px]" />
                     </div>

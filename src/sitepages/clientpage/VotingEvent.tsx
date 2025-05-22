@@ -12,26 +12,27 @@ import EventCard from '@/components/EventComponents/EventCard';
 import CreateEvent from '@/components/Modals/EventModals/CreateEvent';
 import EventSettings from '@/components/Modals/EventModals/EventSettings';
 import EventShareCard from '@/components/Modals/EventModals/EventShareCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { setShowCreate } from '@/store/DataSlides/EventPageStatesSlide';
 
 
 const VotingEvent = () => {
 
+  const pageStates = useSelector((state: any) => state.eventpage.eventPageStates)
+  const dispatch = useDispatch()
+
   const [isCreateShowLoading, setIsCreateShowLoading] = useState<boolean>(false)
-  const [isShowCreate, setIsShowCreate] = useState<boolean>(false)
 
   const showCreateEvent = () => {
     setIsCreateShowLoading(true)
 
     setTimeout(() => {
       setIsCreateShowLoading(false)
-      setIsShowCreate(true)
+      dispatch(setShowCreate(true))
     }, 1000)
   }
 
-  const [eventTiming, setEventTiming] = useState<boolean>(false)
-  const [isShowSettings, setIsShowSettings] = useState<boolean>(false)
-  const [isShowShare, setIsShowShare] = useState<boolean>(false)
-
+  
 
   return (
     <>
@@ -61,17 +62,17 @@ const VotingEvent = () => {
                 <h2 className="text-[16px] py-5 font-poppins font-semibold">Opened Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
-                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
-                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
-                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
+                  <EventCard eventType="cost" eventTiming={false} />
+                  <EventCard eventType="nocost" eventTiming={true} />
+                  <EventCard eventType="cost" eventTiming={false} />
                 </section>
 
                 <h2 className="text-[16px] py-5 font-poppins font-semibold">Closed Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
-                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
-                  <EventCard eventType="cost" eventTiming={false} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
-                  <EventCard eventType="nocost" eventTiming={true} setEventTiming={setEventTiming} setIsShowShare={setIsShowShare} setIsShowSettings={setIsShowSettings} />
+                  <EventCard eventType="nocost" eventTiming={true}  />
+                  <EventCard eventType="cost" eventTiming={false}  />
+                  <EventCard eventType="nocost" eventTiming={true} />
                 </section>
               </div>
             </div>
@@ -80,9 +81,9 @@ const VotingEvent = () => {
       </div>
 
       {/*Modals*/}
-      {isShowCreate && <CreateEvent setIsCreateShow={setIsShowCreate} />}
-      {isShowSettings && <EventSettings eventTiming={eventTiming} setIsShowSettings={setIsShowSettings} />}
-      {isShowShare && <EventShareCard setIsShowShare={setIsShowShare} />}
+      {pageStates.showCreate && <CreateEvent />}
+      {pageStates.showSettings && <EventSettings />}
+      {pageStates.showShare && <EventShareCard />}
     </>
   )
 }

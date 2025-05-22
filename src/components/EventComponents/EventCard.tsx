@@ -6,9 +6,13 @@ import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { EventCardProps } from "../../interfaces/interfaces"
 import { Link } from "react-router-dom"
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSettingEventTiming, setShowSettings, setShowShare } from "@/store/DataSlides/EventPageStatesSlide";
 
 
 const EventCard = (props: EventCardProps) => {
+
+    const dispatch = useDispatch()
 
     const [isShowSettingsLoading, setShowSettingsLoading] = useState<boolean>(false)
     const [isShowShareLoading, setShowShareLoading] = useState<boolean>(false)
@@ -16,16 +20,15 @@ const EventCard = (props: EventCardProps) => {
     const showEventSettings = async () => {
         setShowSettingsLoading(true)
 
-
         if (props.eventTiming) {
-            props.setEventTiming(true)
+            dispatch(setSettingEventTiming(true))
         } else {
-            props.setEventTiming(false);
+            dispatch(setSettingEventTiming(false))
         }
 
         setTimeout(() => {
             setShowSettingsLoading(false)
-            props.setIsShowSettings(true)
+            dispatch(setShowSettings(true))
         }, 1000)
 
     }
@@ -35,7 +38,7 @@ const EventCard = (props: EventCardProps) => {
 
         setTimeout(() => {
             setShowShareLoading(false)
-            props.setIsShowShare(true)
+            dispatch(setShowShare(true))
         }, 1000)
     }
 
@@ -89,3 +92,4 @@ const EventCard = (props: EventCardProps) => {
 }
 
 export default EventCard
+
