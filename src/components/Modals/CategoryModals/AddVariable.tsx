@@ -1,5 +1,5 @@
 
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addContenderVariable } from "@/store/DataSlides/ContenderVarSlide"
 
 import { reqtype, vartype } from "@/interfaces/enums"
@@ -11,6 +11,7 @@ import { IoClose } from "react-icons/io5"
 
 const AddVariable = (props: AddVariableProps) => {
 
+    const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
     const dispatch = useDispatch()
 
     const closeCreateEvent = () => {
@@ -20,8 +21,9 @@ const AddVariable = (props: AddVariableProps) => {
     const variableNameRef = useRef<HTMLInputElement | null>(null)
     const variableTypeRef = useRef<HTMLSelectElement | null>(null)
     const requirementTypeRef = useRef<HTMLSelectElement | null>(null)
-    
+
     const [isLoading, setIsLoading] = useState<boolean>(false)
+
     const handleAddVariable = () => {
         setIsLoading(true)
 
@@ -30,25 +32,44 @@ const AddVariable = (props: AddVariableProps) => {
         const requirementType = requirementTypeRef.current?.value
 
         if (!variableName || !variableType || !requirementType) {
-            alert("Please fill all fields")
+
+            if (!variableName) variableNameRef.current?.classList.add("border-red-500"); else variableNameRef.current?.classList.remove("border-red-500")
+            if (!variableType) variableTypeRef.current?.classList.add("border-red-500"); else variableTypeRef.current?.classList.remove("border-red-500")
+            if (!requirementType) requirementTypeRef.current?.classList.add("border-red-500"); else requirementTypeRef.current?.classList.remove("border-red-500")
+
             setIsLoading(false)
             return
-        }else{
-            
-            const variableData = {
-                variableName,
-                variableType,
-                requirementType
-            }
+        } else {
+
+            variableNameRef.current?.classList.remove("border-red-500")
+            variableTypeRef.current?.classList.remove("border-red-500")
+            requirementTypeRef.current?.classList.remove("border-red-500")
 
             setTimeout(() => {
-                setIsLoading(false)
-                props.setIsShowVariableAdd(false)
 
-               dispatch(addContenderVariable(variableData))
+                const isVariableExist = contenderVariables.some((variable: any) => variable.name === variableName)
+
+                if (isVariableExist) {
+                    variableNameRef.current?.classList.add("border-red-500")
+                    setIsLoading(false)
+                    return
+                } else {
+                    const variableData = {
+                        variableName,
+                        variableType,
+                        requirementType
+                    }
+
+                    setIsLoading(false)
+                    props.setIsShowVariableAdd(false)
+
+                    dispatch(addContenderVariable(variableData))
+                }
+
             }, 2000);
+
         }
-        
+
     }
 
     return (
@@ -71,7 +92,7 @@ const AddVariable = (props: AddVariableProps) => {
 
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Variable Name</p>
-                        <input ref={variableNameRef} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Variable Name" />
+                        <input ref={variableNameRef} maxLength={10} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Variable Name" />
                     </section>
 
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">
@@ -91,7 +112,7 @@ const AddVariable = (props: AddVariableProps) => {
                             <option value="">Set Requirement Type</option>
 
                             {Object.values(reqtype).map((type, index) => (
-                                 type !== reqtype.default &&  <option key={index} value={type}>{type}</option>
+                                type !== reqtype.default && <option key={index} value={type}>{type}</option>
                             ))}
                         </select>
                     </section>

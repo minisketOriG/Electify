@@ -22,17 +22,18 @@ const EditVariable = (props: EditVariableProps) => {
   const variableTypeRef = useRef<HTMLSelectElement | null>(null)
   const requirementTypeRef = useRef<HTMLSelectElement | null>(null)
 
-  const setVariableData = () => {
+
+  useEffect(() => {
+
     if (variableData) {
       variableNameRef.current!.value = variableData.name
       variableTypeRef.current!.value = variableData.type
       requirementTypeRef.current!.value = variableData.requirement
     }
-  }
 
-  useEffect(() => {
-    setVariableData();
-  });
+  }, [variableData])
+
+  
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const handleEditVariable = (id: number) => {
@@ -59,7 +60,7 @@ const EditVariable = (props: EditVariableProps) => {
         setIsLoading(false)
         props.setIsShowVariableEdit(false)
 
-       dispatch(editContenderVariable(variableData))
+        dispatch(editContenderVariable(variableData))
 
       }, 2000);
     }

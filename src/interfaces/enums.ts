@@ -3,8 +3,7 @@
 export enum vartype {
     text = "text",
     number = "number",
-    email = "email",
-    default = "default"
+    email = "email"
 }
 
 export enum reqtype {
