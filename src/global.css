@@ -52,6 +52,11 @@
     hover:scale-[0.9] hover:font-bold transition-all duration-300;
 }
 
+.landing-billing{
+    background-image: url(/src/assets/images/heroImg.png);
+    @apply w-full flex flex-col items-center justify-center py-8 bg-cover bg-center;
+}
+
 .landing-subscribe-input {
     @apply w-[300px] h-[40px] font-poppins font-semibold text-black outline-0 p-2 caret-[#0C35BC];
 }

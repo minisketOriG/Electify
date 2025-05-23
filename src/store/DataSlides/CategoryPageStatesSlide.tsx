@@ -5,12 +5,16 @@ export const categorypageSlide = createSlice({
     name: "categorypageSlide",
     initialState: {
         categoryPageStates: {
+            eventType: "nocost",
             showCreate: false,
             showSettings: false,
             showShare: false
         }
     },
     reducers: {
+        setEventType: (state, action) => {
+            state.categoryPageStates.eventType = action.payload
+        },
         setShowCreate: (state, action) => {
             state.categoryPageStates.showCreate = action.payload
         },
@@ -23,5 +27,5 @@ export const categorypageSlide = createSlice({
     }
 })
 
-export const { setShowCreate, setShowSettings, setShowShare } = categorypageSlide.actions
+export const { setEventType, setShowCreate, setShowSettings, setShowShare } = categorypageSlide.actions
 export default categorypageSlide.reducer

@@ -8,7 +8,7 @@ export enum vartype {
 
 export enum reqtype {
     default = "default",
-    optional = "optional",
-    required = "required"
+    required = "required",
+    optional = "optional"
 }
 

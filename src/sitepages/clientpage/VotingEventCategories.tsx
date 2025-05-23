@@ -15,21 +15,19 @@ import CategoryCard from "@/components/EventComponents/CategoryCard"
 import NavigationPanel from "@/components/PageComponents/NavigationPanel"
 import PageHeader from "@/components/PageComponents/PageHeader"
 import CreateCategoty from "@/components/Modals/CategoryModals/CreateCategoty";
+import CategoryShare from "@/components/Modals/CategoryModals/CategoryShare";
+import CategorySettings from "@/components/Modals/CategoryModals/CategorySettings";
 
 
 const VotingEventCategories = () => {
 
-  const categoryStates = useSelector((state: any) => state.categorypage.categoryPageStates)
-  const dispatch = useDispatch()
-
   const navigate = useNavigate()
-  const handleNavigate = () => {
-    navigate(-1)
-  }
+  const dispatch = useDispatch()
+  const categoryStates = useSelector((state: any) => state.categorypage.categoryPageStates)
+
 
   const [isCreateCatShowLoading, setIsCreateCatShowLoading] = useState<boolean>(false)
- 
-
+  
   const showCreateCategory = () => {
     setIsCreateCatShowLoading(true)
 
@@ -53,7 +51,7 @@ const VotingEventCategories = () => {
 
             <div className="w-full h-auto p-10">
               <h1 className="flex items-center text-black font-poppins font-semibold text-[14px]">
-                <FaArrowLeft onClick={handleNavigate} className="w-[20px] h-[20px] mr-2 cursor-pointer hover:scale-[1.2] transition-all duration-100" />
+                <FaArrowLeft onClick={() => { navigate(-1) }} className="w-[20px] h-[20px] mr-2 cursor-pointer hover:scale-[1.2] transition-all duration-100" />
                 Voting Events {">"} Gambisa Awards
               </h1>
 
@@ -73,8 +71,8 @@ const VotingEventCategories = () => {
                 <button onClick={showCreateCategory} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateCatShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> : 
-                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" /> 
+                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
+                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
                   }
                   Add new category
                 </button>
@@ -86,7 +84,7 @@ const VotingEventCategories = () => {
               </div>
 
               <div className="">
-                <h2 className="text-[16px] py-5 font-poppins font-semibold">Categories</h2>
+                <h2 className="text-[16px] py-2 font-poppins font-semibold">Categories</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
                   <CategoryCard />
@@ -103,6 +101,9 @@ const VotingEventCategories = () => {
       {/* Modals */}
 
       {categoryStates.showCreate && <CreateCategoty />}
+      {categoryStates.showShare && <CategoryShare />}
+      {categoryStates.showSettings && <CategorySettings />}
+    
     </>
   )
 }

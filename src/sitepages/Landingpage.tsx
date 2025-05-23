@@ -118,7 +118,7 @@ const Landingpage = () => {
           </p>
         </div>
 
-        <div className="w-full flex flex-col items-center justify-center py-8 bg-[url('images/heroImg.png')] bg-cover bg-center">
+        <div className="landing-billing">
           <p className="w-full font-titan text-center text-black text-4xl font-bold py-5">
             TO SET UP YOUR ACCOUNT AS A CLIENT
           </p>

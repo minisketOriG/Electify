@@ -11,15 +11,17 @@ import PageHeader from '@/components/PageComponents/PageHeader';
 import EventCard from '@/components/EventComponents/EventCard';
 import CreateEvent from '@/components/Modals/EventModals/CreateEvent';
 import EventSettings from '@/components/Modals/EventModals/EventSettings';
-import EventShareCard from '@/components/Modals/EventModals/EventShareCard';
+import EventShareCard from '@/components/Modals/EventModals/EventShare';
+
+//stateHandlers
 import { useDispatch, useSelector } from 'react-redux';
 import { setShowCreate } from '@/store/DataSlides/EventPageStatesSlide';
 
 
 const VotingEvent = () => {
 
-  const pageStates = useSelector((state: any) => state.eventpage.eventPageStates)
   const dispatch = useDispatch()
+  const pageStates = useSelector((state: any) => state.eventpage.eventPageStates)
 
   const [isCreateShowLoading, setIsCreateShowLoading] = useState<boolean>(false)
 
@@ -32,6 +34,8 @@ const VotingEvent = () => {
     }, 1000)
   }
 
+
+  
   
 
   return (
@@ -59,7 +63,7 @@ const VotingEvent = () => {
               </div>
 
               <div className="w-full py-5">
-                <h2 className="text-[16px] py-5 font-poppins font-semibold">Opened Events</h2>
+                <h2 className="text-[16px] py-3 font-poppins font-semibold">Opened Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
                   <EventCard eventType="cost" eventTiming={false} />
@@ -67,7 +71,7 @@ const VotingEvent = () => {
                   <EventCard eventType="cost" eventTiming={false} />
                 </section>
 
-                <h2 className="text-[16px] py-5 font-poppins font-semibold">Closed Events</h2>
+                <h2 className="text-[16px] py-3 font-poppins font-semibold">Closed Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
                   <EventCard eventType="nocost" eventTiming={true}  />

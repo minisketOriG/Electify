@@ -92,7 +92,7 @@ const AddVariable = (props: AddVariableProps) => {
 
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Variable Name</p>
-                        <input ref={variableNameRef} maxLength={10} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Variable Name" />
+                        <input ref={variableNameRef} maxLength={15} className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Variable Name" />
                     </section>
 
                     <section className="w-[90%] flex justify-center items-center flex-col mt-1">

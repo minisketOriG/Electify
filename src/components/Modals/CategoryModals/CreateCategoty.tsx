@@ -24,6 +24,7 @@ import EditVariable from "./EditVariable"
 const CreateCategoty = () => {
 
     const dispatch = useDispatch()
+    const categoryStates = useSelector((state: any) => state.categorypage.categoryPageStates)
     const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
 
 
@@ -56,7 +57,7 @@ const CreateCategoty = () => {
         <>
             <div className="absolute top-0 bottom-0 left-0 right-0 z-50 bg-black/50
                             flex justify-center items-center">
-                <div className="relative w-[500px] flex justify-center items-center flex-col p-4 bg-white rounded-[10px]">
+                <div className="relative w-[500px] max-h-[90%] overflow-auto flex  items-center flex-col p-4 bg-white rounded-[10px]">
 
                     <div onClick={() => dispatch(setShowCreate(false))} className="bg-white absolute top-[5px] right-[10px] w-[40px] h-[40px] flex justify-center items-center
                                     rounded-full cursor-pointer hover:scale-[0.8] transition-all duration-100">
@@ -74,6 +75,27 @@ const CreateCategoty = () => {
                         <p className="w-full my-2 font-poppins font-semibold text-[14px]">Category Name</p>
                         <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Category Name" />
                     </section>
+
+                    {categoryStates.eventType === "cost" &&
+                        <section className="w-[95%] flex justify-center items-center flex-col mt-2">
+                            <p className="w-full my-2 font-poppins font-semibold text-[14px]">Category Cost Per Vote</p>
+                            <div className="w-full flex items-center">
+                                <select className="font-poppins font-semibold text-[14px] text-center caret-[#0C35BC] rounded-l-[10px] border-4 border-[#0C35BC] p-2 bg-white">
+                                    <option value="$">$</option>
+                                    <option value="GH₵">GH₵</option>
+                                    <option value="€">€</option>
+                                </select>
+                                <input
+                                    className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-r-[10px] border-4 border-l-0 border-[#0C35BC] p-2"
+                                    min={0.1}
+                                    max={10}
+                                    step={0.1}
+                                    type="number"
+                                    placeholder="0.00"
+                                />
+                            </div>
+                        </section>
+                    }
 
                     <ColorPanel selectedFlagColor={selectedFlagColor} setSelectedFlagColor={setSelectedFlagColor} />
 
