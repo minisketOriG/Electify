@@ -21,6 +21,7 @@ import { setShowCreate } from '@/store/DataSlides/ContenderPageStatesSlide'
 import AddContender from '@/components/Modals/ContenderModals/AddContender'
 
 
+
 const VotingCategoryContenders = () => {
 
   const navigate = useNavigate()
@@ -60,7 +61,7 @@ const VotingCategoryContenders = () => {
                     <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
                     <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
                   }
-                  Add new contender
+                  Create new contender
                 </button>
                 <button type="button" className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">

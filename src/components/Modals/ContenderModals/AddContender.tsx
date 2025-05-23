@@ -6,10 +6,12 @@ import { useDispatch } from "react-redux"
 //stateHandlers
 import { setShowCreate } from "@/store/DataSlides/ContenderPageStatesSlide"
 import { BsPersonFillAdd } from "react-icons/bs"
+import { IoMdAddCircle } from 'react-icons/io'
 import images from "@/utils/AssetsUtils"
 import { useRef, useState } from "react"
 import { FaSpinner } from "react-icons/fa6"
 import { PiCursorClickFill } from "react-icons/pi"
+import { reqtype, vartype } from "@/interfaces/enums"
 
 
 const AddContender = () => {
@@ -41,6 +43,16 @@ const AddContender = () => {
         }
     }
 
+
+    const contenderVariables = [
+        { name: "name", type: vartype.text, requirement: reqtype.default },
+        { name: "age", type: vartype.number, requirement: reqtype.required },
+        { name: "profession", type: vartype.text, requirement: reqtype.required },
+        { name: "email", type: vartype.email, requirement: reqtype.optional },
+        { name: "location", type: vartype.text, requirement: reqtype.optional },
+    ]
+
+
     return (
         <>
             <div className="absolute top-0 bottom-0 left-0 right-0 z-50 bg-black/50
@@ -59,11 +71,11 @@ const AddContender = () => {
 
                     <hr className="w-full border-2 border-[#0C35BC] mt-2" />
 
-                    <div className="w-[95%] flex justify-center items-center flex-row space-x-10 my-2">
+                    <div className="w-[95%] flex justify-center items-center flex-row space-x-5 my-2">
                         <section className="w-2/5 flex justify-center items-center flex-col ">
                             <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Image</h1>
 
-                            <section className="w-[250px] h-[250px] relative border-4 border-[#0C35BC] rounded-[5px] overflow-hidden">
+                            <section className="w-[250px] h-[280px] relative border-8 border-[#0C35BC] rounded-[10px] overflow-hidden">
                                 <img ref={imageHolderRef} className="w-full h-full" src={images.contendImg} alt="contenderImg" />
 
                                 {isLoadingPic &&
@@ -83,13 +95,36 @@ const AddContender = () => {
                             </button>
                         </section>
 
-                        <section className="w-3/5 flex items-center flex-col">
+                        <section className="w-3/5 flex justify-center items-center flex-col">
                             <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Details</h1>
 
-                            <section className="w-full flex justify-center items-center flex-col">
-                                
-                                <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] rounded-[10px] border-4 border-[#0C35BC] p-2" type="text" placeholder="Event Name" />
-                            </section>
+                            {contenderVariables.map((variable, index) => (
+                                <section key={index} className="w-full flex justify-center items-center flex-row space-x-2 mt-2 rounded-[10px] border-4 border-[#0C35BC] p-1">
+                                    <p className="bg-[#0C35BC] font-poppins text-[12px] text-white px-2 py-1  rounded-[4px]">
+                                        <span className="font-bold">
+                                            {variable.requirement === reqtype.default ? "[D]" :
+                                                variable.requirement === reqtype.required ? "[R]" : "[O]"
+                                            }
+                                        </span>
+                                        <span className="font-bold">{"·"}</span>
+                                        <span className="font-semibold">{variable.name}</span>
+                                    </p>
+                                    {
+                                        variable.type === vartype.text ?
+                                            <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="text" placeholder="type here....." /> :
+                                            variable.type === vartype.number ?
+                                                <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" step={1} min={1} type="number" placeholder="0" /> :
+                                                <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="email" placeholder="johndoe123@gmail.com" />
+                                    }
+                                </section>
+                            ))
+                            }
+
+                            <button className="flex justify-center items-center bg-[#0C35BC] w-[300px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 mt-3 rounded-[10px]
+                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
+                                <IoMdAddCircle className="w-[20px] h-[20px] mr-2" />
+                               Add Contender
+                            </button>
                         </section>
                     </div>
 

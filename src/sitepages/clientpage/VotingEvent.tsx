@@ -58,7 +58,7 @@ const VotingEvent = () => {
                     <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
                     <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
                   }
-                  Create a new event
+                  Create new event
                 </button>
               </div>
 
