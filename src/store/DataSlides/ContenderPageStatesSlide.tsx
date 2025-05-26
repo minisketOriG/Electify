@@ -6,7 +6,8 @@ export const contenderpageSlide = createSlice({
     initialState: {
         contenderStates: {
             showCreate: false,
-            showEdit: false
+            showEdit: false,
+            editContenderId: null,
         }
     },
     reducers: {
@@ -15,11 +16,14 @@ export const contenderpageSlide = createSlice({
         },
         setShowEdit: (state,action) => {
             state.contenderStates.showEdit = action.payload
+        },
+        setEditContenderId: (state, action) => {
+            state.contenderStates.editContenderId = action.payload
         }
     }
 })
 
 
-export const { setShowCreate, setShowEdit } = contenderpageSlide.actions 
+export const { setShowCreate, setShowEdit, setEditContenderId } = contenderpageSlide.actions 
 
 export default contenderpageSlide.reducer

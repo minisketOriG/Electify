@@ -96,7 +96,7 @@ const EventSettings = () => {
                         <button onClick={pageStates.eventTiming ? handleScheduledEventChanges : handleUnscheduledEventChanges} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                                                 text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[12px] hover:text-[#0C35BC] transition-all duration-200">
                             {isLoading && <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" />}
-                            Save Event Changes
+                            Update Event Settings
                         </button>
                     </section>
                 </div>

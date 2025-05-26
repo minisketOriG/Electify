@@ -1,14 +1,16 @@
-import { setShowSettings } from "@/store/DataSlides/CategoryPageStatesSlide"
-import { FaSpinner } from "react-icons/fa6"
-import { IoClose, IoCloseCircle, IoSettingsSharp } from "react-icons/io5"
-import { useDispatch, useSelector } from "react-redux"
-import ColorPanel from "./ColorPanel"
 import { useState } from "react"
-import { reqtype } from "@/interfaces/enums"
-import { removeContenderVariable } from "@/store/DataSlides/ContenderVarSlide"
-import { IoMdAddCircleOutline } from "react-icons/io"
+import { useDispatch, useSelector } from "react-redux"
+
+//icons
+import { FaSpinner } from "react-icons/fa6"
+import { IoClose, IoSettingsSharp } from "react-icons/io5"
 import { MdModeEdit } from "react-icons/md"
-import AddVariable from "./AddVariable"
+
+//stateHandlers
+import { setShowSettings } from "@/store/DataSlides/CategoryPageStatesSlide"
+
+//components
+import ColorPanel from "./ColorPanel"
 import EditVariable from "./EditVariable"
 
 
@@ -29,13 +31,6 @@ const CategorySettings = () => {
       setTimeout(() => {
           setIsLoading(false)
       }, 3000)
-  }
-
-
-  const [isShowVariableAdd, setIsShowVariableAdd] = useState<boolean>(false)
-
-  const handleAddVariable = () => {
-      setIsShowVariableAdd(true)
   }
 
   const [isShowVariableEdit, setIsShowVariableEdit] = useState<boolean>(false)
@@ -95,12 +90,6 @@ const CategorySettings = () => {
           <section className="w-[95%] flex justify-center items-center flex-col mt-2">
             <p className="w-full my-2 font-poppins font-semibold text-[14px]">Contender Description Variables</p>
 
-            <button onClick={handleAddVariable} className="bg-[#0C35BC] flex justify-center items-center text-white px-5 py-1 rounded-[10px] border-2 border-[#0C35BC] 
-                                      text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[#0C35BC] transition-all duration-200">
-              <IoMdAddCircleOutline className="w-[20px] h-[20px] mr-2" />
-              Add Variable
-            </button>
-
             <div className="w-full flex justify-center items-start flex-wrap  p-2 my-2 border-4 border-[#0C35BC] rounded-[10px]">
               {contenderVariables.map((item: any) => {
                 return (
@@ -108,7 +97,6 @@ const CategorySettings = () => {
                     <span className="font-bold">{item.name} {"·"}</span>
                     <span className="font-medium">[{item.requirement} {item.type}]</span>
                     <MdModeEdit className="w-[18px] h-[18px] cursor-pointer mx-1" onClick={() => handleEditVariable(item.id)} />
-                    {item.requirement !== reqtype.default && <IoCloseCircle onClick={() => dispatch(removeContenderVariable(item.id))} className="w-[18px] h-[18px] cursor-pointer" />}
                   </p>
                 )
               })
@@ -120,12 +108,11 @@ const CategorySettings = () => {
             <button onClick={handleCreateCategory} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                                       text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[12px] hover:text-[#0C35BC] transition-all duration-200">
               {isLoading && <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" />}
-              Create a new category
+              Update Category Settings
             </button>
           </section>
 
           {/* Variable Modals */}
-          {isShowVariableAdd && <AddVariable setIsShowVariableAdd={setIsShowVariableAdd} />}
           {isShowVariableEdit && <EditVariable variableId={variableId} setIsShowVariableEdit={setIsShowVariableEdit} />}
 
         </div>

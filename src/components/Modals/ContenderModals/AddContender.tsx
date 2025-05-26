@@ -1,27 +1,34 @@
 
 
-import { IoClose } from "react-icons/io5"
+import { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 
 //stateHandlers
 import { setShowCreate } from "@/store/DataSlides/ContenderPageStatesSlide"
+
+//icons
 import { BsPersonFillAdd } from "react-icons/bs"
 import { IoMdAddCircle } from 'react-icons/io'
-import images from "@/utils/AssetsUtils"
-import { useRef, useState } from "react"
-import { FaSpinner } from "react-icons/fa6"
 import { PiCursorClickFill } from "react-icons/pi"
+import { FaSpinner } from "react-icons/fa6"
+import { IoClose } from "react-icons/io5"
+
+//associates
+import images from "@/utils/AssetsUtils"
 import { reqtype, vartype } from "@/interfaces/enums"
+import { contenderVariables } from "@/utils/DataUtils"
+
 
 
 const AddContender = () => {
 
     const dispatch = useDispatch()
 
-
+    
     const [isLoadingPic, setIsLoadingPic] = useState(false)
     const imagePickerRef = useRef<HTMLInputElement | null>(null)
     const imageHolderRef = useRef<HTMLImageElement | null>(null)
+
 
     const handleImagePicker = () => {
         imagePickerRef.current?.click()
@@ -44,13 +51,45 @@ const AddContender = () => {
     }
 
 
-    const contenderVariables = [
-        { name: "name", type: vartype.text, requirement: reqtype.default },
-        { name: "age", type: vartype.number, requirement: reqtype.required },
-        { name: "profession", type: vartype.text, requirement: reqtype.required },
-        { name: "email", type: vartype.email, requirement: reqtype.optional },
-        { name: "location", type: vartype.text, requirement: reqtype.optional },
-    ]
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+
+    const handleAddContender = () => {
+        setIsLoading(true)
+
+        const variableSections = [...document.querySelectorAll("#variableSetter")];
+        const variableInputs = [...document.querySelectorAll("#variableSetter input")];
+
+        setTimeout(() => {
+            const tempDetails: Record<string, string | number | null> = {};
+            let noErrors: boolean = true;
+
+            contenderVariables.forEach((variable, index) => {
+                const inputcontainer = variableSections[index] as HTMLDivElement;
+                const input = variableInputs[index] as HTMLInputElement;
+                const value = input.value.trim() as string | number | null;
+
+                inputcontainer.classList.remove("border-red-500");
+
+                if ((variable.requirement === reqtype.default || variable.requirement === reqtype.required) && !value) {
+                    inputcontainer.classList.add("border-red-500");
+                    setIsLoading(false);
+                    noErrors = false;
+                    return;
+                }
+
+                if (value) {
+                    tempDetails[variable.name] = value;
+                }
+            });
+
+
+            if (noErrors) {
+                setIsLoading(false);
+                console.log("Contender Details:", tempDetails);
+            }
+
+        }, 2000);
+    }
 
 
     return (
@@ -66,7 +105,7 @@ const AddContender = () => {
 
                     <h1 className="w-full flex items-center flex-row font-poppins font-bold pt-2">
                         <BsPersonFillAdd className="w-[20px] h-[20px] mr-3" />
-                        Create a new contender
+                        Create new contender
                     </h1>
 
                     <hr className="w-full border-2 border-[#0C35BC] mt-2" />
@@ -99,7 +138,7 @@ const AddContender = () => {
                             <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Details</h1>
 
                             {contenderVariables.map((variable, index) => (
-                                <section key={index} className="w-full flex justify-center items-center flex-row space-x-2 mt-2 rounded-[10px] border-4 border-[#0C35BC] p-1">
+                                <section id="variableSetter" key={index} className="w-full flex justify-center items-center flex-row space-x-2 mt-2 rounded-[10px] border-4 border-[#0C35BC] p-1">
                                     <p className="bg-[#0C35BC] font-poppins text-[12px] text-white px-2 py-1  rounded-[4px]">
                                         <span className="font-bold">
                                             {variable.requirement === reqtype.default ? "[D]" :
@@ -120,10 +159,13 @@ const AddContender = () => {
                             ))
                             }
 
-                            <button className="flex justify-center items-center bg-[#0C35BC] w-[300px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 mt-3 rounded-[10px]
+                            <button onClick={handleAddContender} className="flex justify-center items-center bg-[#0C35BC] w-[300px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 mt-3 rounded-[10px]
                             hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
-                                <IoMdAddCircle className="w-[20px] h-[20px] mr-2" />
-                               Add Contender
+                                {isLoading ?
+                                    <FaSpinner className="w-[18px] h-[18px] mr-2 animate-spin" /> :
+                                    <IoMdAddCircle className="w-[20px] h-[20px] mr-2" />
+                                }
+                                Add Contender
                             </button>
                         </section>
                     </div>

@@ -1,5 +1,6 @@
 
 import images from "./AssetsUtils";
+import { vartype, reqtype } from "@/interfaces/enums";
 
 
 export const colors = [
@@ -12,11 +13,19 @@ export const colors = [
     { color: "bg-teal-500" },
 ]
 
+export const contenderVariables = [
+    { name: "name", type: vartype.text, requirement: reqtype.default },
+    { name: "age", type: vartype.number, requirement: reqtype.required },
+    { name: "profession", type: vartype.text, requirement: reqtype.required },
+    { name: "email", type: vartype.email, requirement: reqtype.optional },
+    { name: "location", type: vartype.text, requirement: reqtype.optional },
+]
+
 export const contenderDetails = [
-    { name: "Paul Kaume", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg },
-    { name: "Adu Osei Bonsu", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg1 },
-    { name: "Jane Doe", age: 30, occupation: "Software Engineer", votes: 420, percentage: "35%", image: images.contendImg2 },
-    { name: "John Smith", age: 29, occupation: "Graphic Designer", votes: 280, percentage: "23%", image: images.contendImg3 },
-    { name: "Emily Johnson", age: 24, occupation: "Marketing Specialist", votes: 310, percentage: "26%", image: images.contendImg },
-    { name: "Michael Brown", age: 32, occupation: "Photographer", votes: 390, percentage: "33%", image: images.contendImg2 },
-  ];
+    { id: 1, name: "Paul Kaume", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg },
+    { id: 2, name: "Adu Osei Bonsu", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg1 },
+    { id: 3, name: "Jane Doe", age: 30, occupation: "Software Engineer", votes: 420, percentage: "35%", image: images.contendImg2 },
+    { id: 4, name: "John Smith", age: 29, occupation: "Graphic Designer", votes: 280, percentage: "23%", image: images.contendImg3 },
+    { id: 5, name: "Emily Johnson", age: 24, occupation: "Marketing Specialist", votes: 310, percentage: "26%", image: images.contendImg },
+    { id: 6, name: "Michael Brown", age: 32, occupation: "Photographer", votes: 390, percentage: "33%", image: images.contendImg2 },
+];

@@ -19,6 +19,7 @@ import PageHeader from '../../components/PageComponents/PageHeader'
 //statehandlers
 import { setShowCreate } from '@/store/DataSlides/ContenderPageStatesSlide'
 import AddContender from '@/components/Modals/ContenderModals/AddContender'
+import EditContender from '@/components/Modals/ContenderModals/EditContender'
 
 
 
@@ -39,6 +40,7 @@ const VotingCategoryContenders = () => {
     }, 1000)
   }
 
+  
   return (
     <>
       <div className="flex flex-col w-full h-screen overflow-hidden">
@@ -77,6 +79,7 @@ const VotingCategoryContenders = () => {
                   {contenderDetails.map((contender, index) => (
                     <ContenderCard
                       key={index}
+                      id={contender.id}
                       name={contender.name}
                       age={contender.age}
                       role={contender.occupation}
@@ -94,6 +97,7 @@ const VotingCategoryContenders = () => {
 
       {/* Modal */}
       {contenderStates.showCreate && <AddContender />}
+      {contenderStates.showEdit && <EditContender />}
     </>
   )
 }

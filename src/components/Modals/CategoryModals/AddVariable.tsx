@@ -11,8 +11,8 @@ import { IoClose } from "react-icons/io5"
 
 const AddVariable = (props: AddVariableProps) => {
 
-    const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
     const dispatch = useDispatch()
+    const contenderVariables = useSelector((state: any) => state.contenderVariables.contenderVariables)
 
     const closeCreateEvent = () => {
         props.setIsShowVariableAdd(false)

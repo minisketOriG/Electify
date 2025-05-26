@@ -17,8 +17,6 @@ const EventCard = (props: EventCardProps) => {
     const dispatch = useDispatch()
 
    
-
-
     const [isShowSettingsLoading, setShowSettingsLoading] = useState<boolean>(false)
     const [isShowShareLoading, setShowShareLoading] = useState<boolean>(false)
     const [isViewEvent, setIsViewEvent] = useState<boolean>(false)
