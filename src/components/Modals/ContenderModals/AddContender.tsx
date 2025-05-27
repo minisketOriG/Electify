@@ -24,7 +24,7 @@ const AddContender = () => {
 
     const dispatch = useDispatch()
 
-    
+
     const [isLoadingPic, setIsLoadingPic] = useState(false)
     const imagePickerRef = useRef<HTMLInputElement | null>(null)
     const imageHolderRef = useRef<HTMLImageElement | null>(null)
@@ -114,7 +114,13 @@ const AddContender = () => {
                         <section className="w-2/5 flex justify-center items-center flex-col ">
                             <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Image</h1>
 
-                            <section className="w-[250px] h-[280px] relative border-8 border-[#0C35BC] rounded-[10px] overflow-hidden">
+                            <button onClick={handleImagePicker} className="flex justify-center items-center bg-[#0C35BC] w-[280px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 rounded-[10px]
+                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
+                                <PiCursorClickFill className="w-[20px] h-[20px] mr-2" />
+                                Select Contender Image
+                            </button>
+
+                            <section className="w-[250px] h-[280px] relative mt-2 border-8 border-[#0C35BC] rounded-[10px] overflow-hidden">
                                 <img ref={imageHolderRef} className="w-full h-full" src={images.contendImg} alt="contenderImg" />
 
                                 {isLoadingPic &&
@@ -125,13 +131,6 @@ const AddContender = () => {
 
                                 <input ref={imagePickerRef} onChange={handleImageChange} type="file" name="" hidden />
                             </section>
-
-
-                            <button onClick={handleImagePicker} className="flex justify-center items-center bg-[#0C35BC] w-[300px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 mt-3 rounded-[10px]
-                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
-                                <PiCursorClickFill className="w-[20px] h-[20px] mr-2" />
-                                Select Contender Image
-                            </button>
                         </section>
 
                         <section className="w-3/5 flex justify-center items-center flex-col">
@@ -158,17 +157,17 @@ const AddContender = () => {
                                 </section>
                             ))
                             }
-
-                            <button onClick={handleAddContender} className="flex justify-center items-center bg-[#0C35BC] w-[300px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-2 py-2 mt-3 rounded-[10px]
-                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
-                                {isLoading ?
-                                    <FaSpinner className="w-[18px] h-[18px] mr-2 animate-spin" /> :
-                                    <IoMdAddCircle className="w-[20px] h-[20px] mr-2" />
-                                }
-                                Add Contender
-                            </button>
                         </section>
                     </div>
+
+                    <button onClick={handleAddContender} className="flex justify-center items-center bg-[#0C35BC] w-[340px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-3 py-3 mt-4 rounded-[10px]
+                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
+                        {isLoading ?
+                            <FaSpinner className="w-[18px] h-[18px] mr-2 animate-spin" /> :
+                            <IoMdAddCircle className="w-[20px] h-[20px] mr-2" />
+                        }
+                        Add Contender
+                    </button>
 
                 </div>
             </div>
