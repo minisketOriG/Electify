@@ -7,7 +7,7 @@ export const contenderpageSlide = createSlice({
         contenderStates: {
             showCreate: false,
             showEdit: false,
-            editContenderId: null,
+            editContenderId: 0,
         }
     },
     reducers: {

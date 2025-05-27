@@ -16,13 +16,13 @@ export const colors = [
 export const contenderVariables = [
     { name: "name", type: vartype.text, requirement: reqtype.default },
     { name: "age", type: vartype.number, requirement: reqtype.required },
-    { name: "profession", type: vartype.text, requirement: reqtype.required },
+    { name: "occupation", type: vartype.text, requirement: reqtype.required },
     { name: "email", type: vartype.email, requirement: reqtype.optional },
     { name: "location", type: vartype.text, requirement: reqtype.optional },
 ]
 
 export const contenderDetails = [
-    { id: 1, name: "Paul Kaume", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg },
+    { id: 1, name: "Paulina Kaume", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg },
     { id: 2, name: "Adu Osei Bonsu", age: 26, occupation: "Care taker", votes: 340, percentage: "28%", image: images.contendImg1 },
     { id: 3, name: "Jane Doe", age: 30, occupation: "Software Engineer", votes: 420, percentage: "35%", image: images.contendImg2 },
     { id: 4, name: "John Smith", age: 29, occupation: "Graphic Designer", votes: 280, percentage: "23%", image: images.contendImg3 },

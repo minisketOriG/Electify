@@ -3,9 +3,9 @@
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setEditContenderId, setShowEdit } from "@/store/DataSlides/ContenderPageStatesSlide";
 import { MdModeEdit } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa6";
+import { setEditContenderId, setShowEdit } from "@/store/DataSlides/ContenderPageStatesSlide";
 
 
 

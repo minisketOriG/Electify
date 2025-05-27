@@ -1,12 +1,11 @@
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 //associates
 import { reqtype, vartype } from "@/interfaces/enums"
 import { setShowEdit } from "@/store/DataSlides/ContenderPageStatesSlide"
-import images from "@/utils/AssetsUtils"
-import { contenderVariables } from "@/utils/DataUtils"
+import { contenderDetails, contenderVariables } from "@/utils/DataUtils"
 
 //icons
 import { FaSpinner } from "react-icons/fa6"
@@ -15,15 +14,29 @@ import { PiCursorClickFill } from "react-icons/pi"
 import { FaUserEdit } from "react-icons/fa"
 
 
+
 const EditContender = () => {
 
   const dispatch = useDispatch()
-   const contenderStates = useSelector((state: any) => state.contenderpage.contenderStates)
+  const contenderStates = useSelector((state: any) => state.contenderpage.contenderStates)
+
+  const [contenderDetail, setContenderDetail] = useState<any>({})
+
+  useEffect(() => {
+
+    if (contenderStates) {
+      const details = contenderDetails.find((detail) => detail.id === contenderStates.editContenderId);
+      if (details) {
+        setContenderDetail(details);
+      }
+    }
+
+  }, [contenderStates])
+
 
   const [isLoadingPic, setIsLoadingPic] = useState(false)
   const imagePickerRef = useRef<HTMLInputElement | null>(null)
   const imageHolderRef = useRef<HTMLImageElement | null>(null)
-
 
   const handleImagePicker = () => {
     imagePickerRef.current?.click()
@@ -110,7 +123,7 @@ const EditContender = () => {
               <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Image</h1>
 
               <section className="w-[250px] h-[280px] relative border-8 border-[#0C35BC] rounded-[10px] overflow-hidden">
-                <img ref={imageHolderRef} className="w-full h-full" src={images.contendImg} alt="contenderImg" />
+                <img ref={imageHolderRef} className="w-full h-full" src={contenderDetail.image} alt="contenderImg" />
 
                 {isLoadingPic &&
                   <div className="bg-black/50 flex justify-center items-center absolute top-0 bottom-0 left-0 right-0">
@@ -136,8 +149,9 @@ const EditContender = () => {
                 <section id="variableSetter" key={index} className="w-full flex justify-center items-center flex-row space-x-2 mt-2 rounded-[10px] border-4 border-[#0C35BC] p-1">
                   <p className="bg-[#0C35BC] font-poppins text-[12px] text-white px-2 py-1  rounded-[4px]">
                     <span className="font-bold">
-                      {variable.requirement === reqtype.default ? "[D]" :
-                        variable.requirement === reqtype.required ? "[R]" : "[O]"
+                      {
+                        variable.requirement === reqtype.default ? "[D]" :
+                          variable.requirement === reqtype.required ? "[R]" : "[O]"
                       }
                     </span>
                     <span className="font-bold">{"·"}</span>
@@ -145,10 +159,10 @@ const EditContender = () => {
                   </p>
                   {
                     variable.type === vartype.text ?
-                      <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="text" placeholder="type here....." /> :
+                      <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="text" defaultValue={contenderDetail[variable.name]} placeholder="type here....." /> :
                       variable.type === vartype.number ?
-                        <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" step={1} min={1} type="number" placeholder="0" /> :
-                        <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="email" placeholder="johndoe123@gmail.com" />
+                        <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" step={1} min={1} type="number" defaultValue={contenderDetail[variable.name]} placeholder="type or select a number..." /> :
+                        <input className="w-full font-poppins font-semibold text-[14px] caret-[#0C35BC] outline-none" type="email" defaultValue={contenderDetail[variable.name]} placeholder={contenderDetail[variable.name] || "type your email..."} />
                   }
                 </section>
               ))
