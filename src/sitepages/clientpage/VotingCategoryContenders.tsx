@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 //icons
-import { FaArrowLeft, FaArrowTrendUp, FaSpinner } from 'react-icons/fa6'
+import { FaArrowLeft, FaSpinner } from 'react-icons/fa6'
 import { IoMdAddCircle } from 'react-icons/io'
 
 //associates
@@ -17,9 +17,11 @@ import ContenderCard from '../../components/EventComponents/ContenderCard'
 import PageHeader from '../../components/PageComponents/PageHeader'
 
 //statehandlers
-import { setShowCreate } from '@/store/DataSlides/ContenderPageStatesSlide'
+import { setShowCreate, setShowMetrics } from '@/store/DataSlides/ContenderPageStatesSlide'
 import AddContender from '@/components/Modals/ContenderModals/AddContender'
 import EditContender from '@/components/Modals/ContenderModals/EditContender'
+import ContenderStat from '@/components/Modals/StatisticsModals/ContenderStat'
+import { IoStatsChart } from 'react-icons/io5'
 
 
 
@@ -30,6 +32,7 @@ const VotingCategoryContenders = () => {
   const contenderStates = useSelector((state: any) => state.contenderpage.contenderStates)
 
   const [isCreateConShowLoading, setIsCreateConShowLoading] = useState<boolean>(false)
+  const [isShowMetricsLoading, setShowMetricsLoading] = useState<boolean>(false)
 
   const showCreateContender = () => {
     setIsCreateConShowLoading(true)
@@ -40,7 +43,18 @@ const VotingCategoryContenders = () => {
     }, 1000)
   }
 
-  
+
+  const showMetrics = () => {
+    setShowMetricsLoading(true)
+
+    setTimeout(() => {
+      setShowMetricsLoading(false)
+      dispatch(setShowMetrics(true))
+    }, 1000)
+  }
+
+
+
   return (
     <>
       <div className="flex flex-col w-full h-screen overflow-hidden">
@@ -60,14 +74,17 @@ const VotingCategoryContenders = () => {
                 <button onClick={showCreateContender} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateConShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
-                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
+                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <IoMdAddCircle className="w-[30px] h-[30px] mr-2" />
                   }
                   Create new contender
                 </button>
-                <button type="button" className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showMetrics} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
-                  <FaArrowTrendUp className="w-[30px] h-[30px] mr-5" />
+                  {isShowMetricsLoading ?
+                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <IoStatsChart className="w-[30px] h-[30px] mr-2" />
+                  }
                   View Category Metrics
                 </button>
               </div>
@@ -98,6 +115,7 @@ const VotingCategoryContenders = () => {
       {/* Modal */}
       {contenderStates.showCreate && <AddContender />}
       {contenderStates.showEdit && <EditContender />}
+      {contenderStates.showMetrics && <ContenderStat />}
     </>
   )
 }

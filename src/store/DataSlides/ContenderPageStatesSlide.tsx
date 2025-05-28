@@ -8,6 +8,7 @@ export const contenderpageSlide = createSlice({
             showCreate: false,
             showEdit: false,
             editContenderId: 0,
+            showMetrics: false
         }
     },
     reducers: {
@@ -19,11 +20,14 @@ export const contenderpageSlide = createSlice({
         },
         setEditContenderId: (state, action) => {
             state.contenderStates.editContenderId = action.payload
+        },
+        setShowMetrics: (state,action) => {
+            state.contenderStates.showMetrics = action.payload
         }
     }
 })
 
 
-export const { setShowCreate, setShowEdit, setEditContenderId } = contenderpageSlide.actions 
+export const { setShowCreate, setShowEdit, setEditContenderId, setShowMetrics } = contenderpageSlide.actions 
 
 export default contenderpageSlide.reducer

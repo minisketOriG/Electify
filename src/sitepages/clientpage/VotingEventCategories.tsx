@@ -7,7 +7,7 @@ import { setShowCreate } from "@/store/DataSlides/CategoryPageStatesSlide";
 
 //icons
 import { IoMdAddCircle } from "react-icons/io"
-import { FaArrowTrendUp, FaArrowLeft, FaSpinner } from "react-icons/fa6";
+import { FaArrowLeft, FaSpinner } from "react-icons/fa6";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
 //components
@@ -71,15 +71,10 @@ const VotingEventCategories = () => {
                 <button onClick={showCreateCategory} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateCatShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
-                    <IoMdAddCircle className="w-[30px] h-[30px] mr-5" />
+                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <IoMdAddCircle className="w-[30px] h-[30px] mr-2" />
                   }
                   Add new category
-                </button>
-                <button onClick={() => { /* View event metrics logic */ }} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
-                 text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
-                  <FaArrowTrendUp className="w-[30px] h-[30px] mr-5" />
-                  View Event Metrics
                 </button>
               </div>
 
