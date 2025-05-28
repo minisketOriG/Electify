@@ -7,15 +7,15 @@ import { useState } from "react";
 
 const HeaderButton = (props: HeaderButtonProps) => {
 
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-  const navigate = useNavigate();
 
 
   function handleLogout() {
     setIsLoading(true);
     setIsDisabled(true);
-    console.log("asdasd")
+
 
     setTimeout(() => {
       setIsLoading(false);
@@ -26,13 +26,7 @@ const HeaderButton = (props: HeaderButtonProps) => {
 
   return (
     <>
-      {!props.action ?
-        <button className="flex justify-center items-center bg-white rounded-[10px] w-[120px] border-2 border-white/50 hover:bg-black hover:text-white">
-          <NavLink to={props.link} className="flex justify-center items-center p-[5px] text-[12px] font-poppins font-semibold">
-            {props.icon}
-            <span className="ml-2"> {props.text} </span>
-          </NavLink>
-        </button> :
+      {props.action ?
         <button className="flex justify-center items-center bg-white rounded-[10px] w-[120px] border-2 border-white/50 cursor-pointer  disabled:opacity-80 disabled:pointer-events-none hover:bg-black hover:text-white"
           onClick={handleLogout} disabled={isDisabled}>
           {isLoading && <FaSpinner className="w-[14px] h-[14px] animate-spin" />}
@@ -40,6 +34,13 @@ const HeaderButton = (props: HeaderButtonProps) => {
             {props.icon}
             <span className="ml-2"> {props.text} </span>
           </p>
+        </button>
+        :
+        <button className="flex justify-center items-center bg-white rounded-[10px] w-[120px] border-2 border-white/50 hover:bg-black hover:text-white">
+          <NavLink to={props.link || '#'} className="flex justify-center items-center p-[5px] text-[12px] font-poppins font-semibold">
+            {props.icon}
+            <span className="ml-2"> {props.text} </span>
+          </NavLink>
         </button>
       }
     </>

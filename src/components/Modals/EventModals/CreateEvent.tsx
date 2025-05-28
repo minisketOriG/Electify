@@ -6,6 +6,7 @@ import { IoClose } from "react-icons/io5";
 import ColorPanel from './ColorPanel';
 import { useDispatch } from 'react-redux';
 import { setShowCreate } from '@/store/DataSlides/EventPageStatesSlide';
+import EventCost from './EventCost';
 
 const CreateEvent = () => {
 
@@ -13,12 +14,14 @@ const CreateEvent = () => {
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [selectedFlagColor, setSelectedFlagColor] = useState<number>(0)
+    const [showEventCost, setShowEventCost] = useState<boolean>(false)
 
     const handleCreateEvent = () => {
         setIsLoading(true)
 
         setTimeout(() => {
             setIsLoading(false)
+            setShowEventCost(true)
         }, 3000)
     }
 
@@ -77,6 +80,8 @@ const CreateEvent = () => {
                             Create a new event
                         </button>
                     </section>
+
+                    {showEventCost && <EventCost setShowEventCost={setShowEventCost} />}
                 </div>
             </div>
         </>

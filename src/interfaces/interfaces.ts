@@ -7,7 +7,7 @@ export interface PageHeaderProps{
 export interface HeaderButtonProps{
     text: string;
     icon: React.ReactNode;
-    link: string;
+    link?: string;
     action?: boolean
 }
 
@@ -76,6 +76,9 @@ export interface EventColorPanelProps{
     setSelectedFlagColor: (selectedFlagColor: number) => void;
 }
 
+export interface EventCostProps{
+    setShowEventCost: (showEventCost: boolean) => void;
+}
 
 export interface AddVariableProps{
     setIsShowVariableAdd: (isShowVariableAdd: boolean) => void;

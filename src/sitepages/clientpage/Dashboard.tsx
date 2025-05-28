@@ -41,7 +41,7 @@ const Dashboard = () => {
               </div>
 
               <div className="flex items-center flex-col w-full py-4">
-                <h2 className="w-full text-center text-black font-poppins font-semibold text-[16px]">Revenue Breakdown & Statistics</h2>
+                <h2 className="w-full text-center text-black font-poppins font-semibold text-[16px]">Voting Revenue Breakdown & Statistics</h2>
 
                 <section className="flex justify-center items-center w-full mt-5 space-x-5">
                   <RevenueStatCard title="GROSSS REVENUE" amount={50} />

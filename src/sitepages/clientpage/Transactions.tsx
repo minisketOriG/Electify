@@ -20,9 +20,17 @@ const Transactions = () => {
               <h1 className="text-black font-poppins font-semibold text-[14px]">Transactions</h1>
               <hr className="my-2" />
 
-              <section className="w-full flex justify-center items-center my-4 space-x-10">
+              <section className="w-full flex justify-center items-center mt-10 space-x-10">
+                <Link to="/fundspage/depositfunds">
+                  <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 rounded-[10px]
+                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200">
+                    <PiHandDepositFill className="w-[25px] h-[25px] mr-4" />
+                    Deposit Funds
+                  </button>
+                </Link>
+
                 <Link to="/fundspage/withdrawfunds">
-                  <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 mt-10 rounded-[10px]
+                  <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 rounded-[10px]
                             hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200">
                     <PiHandWithdrawFill className="w-[25px] h-[25px] mr-4" />
                     Withdraw Funds

@@ -4,30 +4,10 @@ import { BsPersonFillAdd } from 'react-icons/bs'
 import { IoLogInSharp, IoLogOut } from 'react-icons/io5'
 import HeaderButton from '../ButtonComponents/HeaderButton'
 import { PageHeaderProps } from '../../interfaces/interfaces'
-import React from 'react'
 import images from '../../utils/AssetsUtils'
 
 
 const PageHeader = (props: PageHeaderProps) => {
-
-  const headerButtons = (): React.ReactNode => {
-    if (props.type == "landingPage") {
-      return (
-        <>
-          <HeaderButton text="Sign in" icon={<IoLogInSharp className="w-[20px] h-[20px]" />} link="/auth/signin" />
-          <HeaderButton text="Sign up" icon={<BsPersonFillAdd className="w-[20px] h-[20px]" />} link="/auth/signup" />
-        </>
-      )
-    } else if (props.type == "clientPage") {
-      return (
-        <>
-          <span className="font-poppins text-[12px] text-white font-semibold">WELCOME, LINDA ADUBEA</span>
-          <img className="w-[30px] h-[30px]" src={images.avatarDemo} alt="profilePic" />
-          <HeaderButton text="Log out" icon={<IoLogOut className="w-[20px] h-[20px]" />} link="/auth/signup" action={true} />
-        </>
-      )
-    }
-  }
 
 
   return (
@@ -40,13 +20,34 @@ const PageHeader = (props: PageHeaderProps) => {
         <div className="flex items-center mx-5 space-x-5">
           <nav>
             <ul className="flex items-center space-x-4">
-              {headerButtons()}
+              <HeaderButtons type={props.type} />
             </ul>
           </nav>
         </div>
       </header>
     </>
   )
+}
+
+
+const HeaderButtons = (props: { type: string }) => {
+  if (props.type == "landingPage") {
+    return (
+      <>
+        <HeaderButton text="Sign in" icon={<IoLogInSharp className="w-[20px] h-[20px]" />} link="/auth/signin" />
+        <HeaderButton text="Sign up" icon={<BsPersonFillAdd className="w-[20px] h-[20px]" />} link="/auth/signup" />
+      </>
+    )
+  } else if (props.type == "clientPage") {
+    return (
+      <>
+        <span className="font-poppins font-bold text-[14px] text-white">WELCOME, LINDA ADUBEA</span>
+        <img className="w-[30px] h-[30px]" src={images.avatarDemo} alt="profilePic" />
+        <span className='font-poppins font-bold text-[16px] text-white'>$ 0.00</span>
+        <HeaderButton text="Log out" icon={<IoLogOut className="w-[20px] h-[20px]" />} action={true} />
+      </>
+    )
+  }
 }
 
 export default PageHeader
