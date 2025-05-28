@@ -17,8 +17,8 @@ import Transactions from '@/sitepages/clientpage/Transactions'
 import VotingEventCategories from '@/sitepages/clientpage/VotingEventCategories'
 import VotingCategoryContenders from '@/sitepages/clientpage/VotingCategoryContenders'
 import NotFound from '@/sitepages/errorpage/NotFound'
-import DepositPage from '@/sitepages/clientpage/DepositPage'
-import WithdrawalPage from '@/sitepages/clientpage/WithdrawalPage'
+import DepositPage from '@/sitepages/fundspage/DepositPage'
+import WithdrawalPage from '@/sitepages/fundspage/WithdrawalPage'
 import ReportIssue from '@/sitepages/clientpage/ReportIssue'
 
 

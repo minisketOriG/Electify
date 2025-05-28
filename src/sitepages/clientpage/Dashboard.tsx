@@ -2,12 +2,12 @@
 
 
 import { Link } from 'react-router-dom';
-import EventStatCard from '../../components/Cards/EventStatCard';
+import EventStatCard from '../../components/MainPageStats/EventStatCard';
 import NavigationPanel from '../../components/PageComponents/NavigationPanel';
 import PageHeader from '../../components/PageComponents/PageHeader';
-import RevenueStatCard from '../../components/Cards/RevenueStatCard';
-import RevenueDescription from '../../components/Cards/RevenueDescription';
-import ActivityTable from '../../components/Tables/ActivityTable';
+import RevenueStatCard from '../../components/MainPageStats/RevenueStatCard';
+import RevenueDescription from '../../components/MainPageStats/RevenueDescription';
+import VotingActivityStat from '../../components/MainPageStats/VotingActivityStats';
 
 const Dashboard = () => {
   return (
@@ -57,11 +57,7 @@ const Dashboard = () => {
                 </Link>
               </div>
 
-              <div className="flex items-center flex-col w-full py-6">
-                <h2 className="w-full text-center text-black font-poppins font-semibold text-[16px]">Real-time Voting Metrics</h2>
-
-                <ActivityTable />
-              </div>
+              <VotingActivityStat />
             </div>
           </div>
         </main>

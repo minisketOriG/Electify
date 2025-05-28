@@ -3,7 +3,7 @@ import NavigationPanel from '../../components/PageComponents/NavigationPanel'
 import PageHeader from '../../components/PageComponents/PageHeader'
 
 import { PiHandDepositFill, PiHandWithdrawFill } from "react-icons/pi";
-import TransactionTable from '../../components/Tables/TransactionTable';
+import TransactionTable from '../../components/MainPageStats/TransactionTable';
 import { Link } from 'react-router-dom';
 
 const Transactions = () => {
@@ -21,27 +21,19 @@ const Transactions = () => {
               <hr className="my-2" />
 
               <section className="w-full flex justify-center items-center my-4 space-x-10">
-                <Link to="/fundspage/depositfunds">
-                <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 mt-10 rounded-[10px]
+                <Link to="/fundspage/withdrawfunds">
+                  <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 mt-10 rounded-[10px]
                             hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200">
-                  <PiHandDepositFill className="w-[25px] h-[25px] mr-4"/>
-                  Deposit Funds
-                </button>
-                </Link>
-
-                <Link to="/fundspage/depositfunds">
-                <button className="flex justify-center items-center bg-[#0C35BC] w-[400px] cursor-pointer text-[16px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-5 py-3 mt-10 rounded-[10px]
-                            hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200">
-                   <PiHandWithdrawFill className="w-[25px] h-[25px] mr-4"/>
-                  Withdraw Funds
-                </button>
+                    <PiHandWithdrawFill className="w-[25px] h-[25px] mr-4" />
+                    Withdraw Funds
+                  </button>
                 </Link>
               </section>
 
               <section className="w-full flex justify-center items-center flex-col py-4">
-                  <h2 className="w-full text-[16px] py-5 font-poppins font-semibold">Transactions History</h2>
+                <h2 className="w-full text-[16px] py-5 font-poppins font-semibold">Transactions History</h2>
 
-                  <TransactionTable />
+                <TransactionTable />
               </section>
             </div>
           </div>

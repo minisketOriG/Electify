@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 //icons
-import { FaArrowLeft, FaSpinner } from 'react-icons/fa6'
+import { FaArrowLeft, FaChartSimple, FaSpinner } from 'react-icons/fa6'
 import { IoMdAddCircle } from 'react-icons/io'
 
 //associates
@@ -21,7 +21,6 @@ import { setShowCreate, setShowMetrics } from '@/store/DataSlides/ContenderPageS
 import AddContender from '@/components/Modals/ContenderModals/AddContender'
 import EditContender from '@/components/Modals/ContenderModals/EditContender'
 import ContenderStat from '@/components/Modals/StatisticsModals/ContenderStat'
-import { IoStatsChart } from 'react-icons/io5'
 
 
 
@@ -83,9 +82,9 @@ const VotingCategoryContenders = () => {
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isShowMetricsLoading ?
                     <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
-                    <IoStatsChart className="w-[30px] h-[30px] mr-2" />
+                    <FaChartSimple className="w-[30px] h-[30px] mr-2"/>
                   }
-                  View Category Metrics
+                  View Voting Metrics
                 </button>
               </div>
 
