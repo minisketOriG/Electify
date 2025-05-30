@@ -6,9 +6,9 @@ import { IoMdAddCircle } from 'react-icons/io';
 import { FaSpinner } from 'react-icons/fa6';
 
 //components
-import NavigationPanel from '@/components/PageComponents/NavigationPanel';
-import PageHeader from '@/components/PageComponents/PageHeader';
-import EventCard from '@/components/EventComponents/EventCard';
+import NavigationPanel from '@/components/ClientPageComponents/NavigationPanel';
+import PageHeader from '@/components/ClientPageComponents/PageHeader';
+import EventCard from '@/components/ClientEventComponents/EventCard';
 import CreateEvent from '@/components/Modals/EventModals/CreateEvent';
 import EventSettings from '@/components/Modals/EventModals/EventSettings';
 import EventShareCard from '@/components/Modals/EventModals/EventShare';
@@ -35,15 +35,15 @@ const VotingEvent = () => {
   }
 
 
-  
-  
+
+
 
   return (
     <>
       <div className="flex flex-col w-full h-screen overflow-hidden">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="votingevents" />
 
@@ -74,8 +74,8 @@ const VotingEvent = () => {
                 <h2 className="text-[16px] py-3 font-poppins font-semibold">Closed Events</h2>
 
                 <section className="w-full flex justify-center items-center py-5 space-y-5 flex-col">
-                  <EventCard eventType="nocost" eventTiming={true}  />
-                  <EventCard eventType="cost" eventTiming={false}  />
+                  <EventCard eventType="nocost" eventTiming={true} />
+                  <EventCard eventType="cost" eventTiming={false} />
                   <EventCard eventType="nocost" eventTiming={true} />
                 </section>
               </div>

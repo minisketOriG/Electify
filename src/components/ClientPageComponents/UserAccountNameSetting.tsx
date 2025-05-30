@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { FaSpinner } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom';
 
 const UserAccountNameSetting = () => {
 
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
 
@@ -13,7 +15,8 @@ const UserAccountNameSetting = () => {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+            navigate("/voterpage/eventcheckout/21213424245423")
+        }, 1000);
     }
 
 

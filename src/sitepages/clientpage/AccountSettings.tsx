@@ -1,19 +1,19 @@
 
-import NavigationPanel from '../../components/PageComponents/NavigationPanel'
-import PageHeader from '../../components/PageComponents/PageHeader'
-import UserAccountNameSetting from '../../components/PageComponents/UserAccountNameSetting'
-import UserAccountPasswordSettings from '../../components/PageComponents/UserAccountPasswordSettings'
-import UserAvatarSetiing from '../../components/PageComponents/UserAvatarSetiing'
+import NavigationPanel from '../../components/ClientPageComponents/NavigationPanel'
+import PageHeader from '../../components/ClientPageComponents/PageHeader'
+import UserAccountNameSetting from '../../components/ClientPageComponents/UserAccountNameSetting'
+import UserAccountPasswordSettings from '../../components/ClientPageComponents/UserAccountPasswordSettings'
+import UserAvatarSetiing from '../../components/ClientPageComponents/UserAvatarSetiing'
 
 const AccountSettings = () => {
 
-  
+
   return (
     <>
       <div className="flex justify-center flex-col w-full h-screen">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="accountsettings" />
 

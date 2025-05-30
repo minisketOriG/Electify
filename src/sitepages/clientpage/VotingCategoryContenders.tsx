@@ -12,9 +12,9 @@ import { IoMdAddCircle } from 'react-icons/io'
 import { contenderDetails } from '@/utils/DataUtils'
 
 //components
-import NavigationPanel from '../../components/PageComponents/NavigationPanel'
-import ContenderCard from '../../components/EventComponents/ContenderCard'
-import PageHeader from '../../components/PageComponents/PageHeader'
+import NavigationPanel from '../../components/ClientPageComponents/NavigationPanel'
+import ContenderCard from '../../components/ClientEventComponents/ContenderCard'
+import PageHeader from '../../components/ClientPageComponents/PageHeader'
 
 //statehandlers
 import { setShowCreate, setShowMetrics } from '@/store/DataSlides/ContenderPageStatesSlide'
@@ -59,7 +59,7 @@ const VotingCategoryContenders = () => {
       <div className="flex flex-col w-full h-screen overflow-hidden">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="votingevents" />
 
@@ -82,7 +82,7 @@ const VotingCategoryContenders = () => {
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isShowMetricsLoading ?
                     <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
-                    <FaChartSimple className="w-[30px] h-[30px] mr-2"/>
+                    <FaChartSimple className="w-[30px] h-[30px] mr-2" />
                   }
                   View Voting Metrics
                 </button>

@@ -3,7 +3,7 @@
 const DepositPage = () => {
   return (
     <>
-      <div className="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+      <div className="bg-gray-200 flex flex-col items-center justify-center min-h-screen">
         <div className="w-full max-w-lg p-10 bg-white rounded-xl shadow-lg">
           <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-8">Deposit Funds</h1>
           <form className="space-y-6">

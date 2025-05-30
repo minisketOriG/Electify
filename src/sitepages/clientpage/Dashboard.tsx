@@ -3,8 +3,8 @@
 
 import { Link } from 'react-router-dom';
 import EventStatCard from '../../components/MainPageStats/EventStatCard';
-import NavigationPanel from '../../components/PageComponents/NavigationPanel';
-import PageHeader from '../../components/PageComponents/PageHeader';
+import NavigationPanel from '../../components/ClientPageComponents/NavigationPanel';
+import PageHeader from '../../components/ClientPageComponents/PageHeader';
 import RevenueStatCard from '../../components/MainPageStats/RevenueStatCard';
 import RevenueDescription from '../../components/MainPageStats/RevenueDescription';
 import VotingActivityStat from '../../components/MainPageStats/VotingActivityStats';
@@ -15,7 +15,7 @@ const Dashboard = () => {
       <div className="flex flex-col w-full h-screen overflow-hidden">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="dashboard" />
 

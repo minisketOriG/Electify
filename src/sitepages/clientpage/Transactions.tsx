@@ -1,6 +1,6 @@
 
-import NavigationPanel from '../../components/PageComponents/NavigationPanel'
-import PageHeader from '../../components/PageComponents/PageHeader'
+import NavigationPanel from '../../components/ClientPageComponents/NavigationPanel'
+import PageHeader from '../../components/ClientPageComponents/PageHeader'
 
 import { PiHandDepositFill, PiHandWithdrawFill } from "react-icons/pi";
 import TransactionTable from '../../components/MainPageStats/TransactionTable';
@@ -12,7 +12,7 @@ const Transactions = () => {
       <div className="flex justify-center flex-col w-full h-screen">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="transactions" />
 

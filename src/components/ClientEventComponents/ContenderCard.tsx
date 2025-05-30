@@ -31,7 +31,7 @@ const ContenderCard = (props: { id: number; name: string; age: number; role: str
 
     return (
         <>
-            <div className="w-[280px] flex justify-center items-center flex-col m-[1%] overflow-hidden rounded-[10px] shadow-[0px_0px_10px_#0C35BC]
+            <div className="bg-white w-[280px] flex justify-center items-center flex-col m-[1%] overflow-hidden rounded-[10px] shadow-[0px_0px_10px_#0C35BC]
             ring-4 ring-gray-600/50">
                 <section className="w-full">
                     <img className="w-full h-[200px]" src={props.image} alt="" />

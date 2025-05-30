@@ -3,8 +3,11 @@
 
 import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 const UserAccountPasswordSettings = () => {
+
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
 
@@ -13,7 +16,8 @@ const UserAccountPasswordSettings = () => {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+            navigate("/voterpage/categorycheckout/121922612961782")
+        }, 1000);
     }
 
 

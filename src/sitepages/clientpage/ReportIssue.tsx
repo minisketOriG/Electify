@@ -1,6 +1,6 @@
 
-import PageHeader from '../../components/PageComponents/PageHeader'
-import NavigationPanel from '../../components/PageComponents/NavigationPanel'
+import PageHeader from '../../components/ClientPageComponents/PageHeader'
+import NavigationPanel from '../../components/ClientPageComponents/NavigationPanel'
 import { useState } from 'react'
 import { FaSpinner } from 'react-icons/fa6'
 
@@ -11,9 +11,9 @@ const ReportIssue = () => {
   const handleSubmitReport = () => {
     setIsLoading(true)
 
-    setTimeout(()=>{
-        setIsLoading(false)
-    },3000)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
   }
 
   return (
@@ -21,7 +21,7 @@ const ReportIssue = () => {
       <div className="flex justify-center flex-col w-full h-screen">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="report" />
 

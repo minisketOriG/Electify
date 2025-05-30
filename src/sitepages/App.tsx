@@ -20,6 +20,8 @@ import NotFound from '@/sitepages/errorpage/NotFound'
 import DepositPage from '@/sitepages/fundspage/DepositPage'
 import WithdrawalPage from '@/sitepages/fundspage/WithdrawalPage'
 import ReportIssue from '@/sitepages/clientpage/ReportIssue'
+import EventCheckout from '@/sitepages/voterpages/EventCheckout'
+import CategoryCheckout from '@/sitepages/voterpages/CategoryCheckout'
 
 
 function App() {
@@ -41,6 +43,11 @@ function App() {
           <Route path="transactions" element={<Transactions />} />
           <Route path="accountsettings" element={<AccountSettings />} />
           <Route path="reportissue" element={<ReportIssue />} />
+        </Route>
+
+        <Route path="voterpage">
+          <Route path="eventcheckout/:id" element={<EventCheckout />} />
+          <Route path="categorycheckout/:id" element={<CategoryCheckout />} />
         </Route>
 
         <Route path="accesspage">

@@ -11,9 +11,9 @@ import { FaArrowLeft, FaSpinner } from "react-icons/fa6";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
 //components
-import CategoryCard from "@/components/EventComponents/CategoryCard"
-import NavigationPanel from "@/components/PageComponents/NavigationPanel"
-import PageHeader from "@/components/PageComponents/PageHeader"
+import CategoryCard from "@/components/ClientEventComponents/CategoryCard"
+import NavigationPanel from "@/components/ClientPageComponents/NavigationPanel"
+import PageHeader from "@/components/ClientPageComponents/PageHeader"
 import CreateCategoty from "@/components/Modals/CategoryModals/CreateCategoty";
 import CategoryShare from "@/components/Modals/CategoryModals/CategoryShare";
 import CategorySettings from "@/components/Modals/CategoryModals/CategorySettings";
@@ -27,7 +27,7 @@ const VotingEventCategories = () => {
 
 
   const [isCreateCatShowLoading, setIsCreateCatShowLoading] = useState<boolean>(false)
-  
+
   const showCreateCategory = () => {
     setIsCreateCatShowLoading(true)
 
@@ -45,7 +45,7 @@ const VotingEventCategories = () => {
       <div className="flex flex-col w-full h-screen overflow-hidden">
         <PageHeader type="clientPage" />
 
-        <main className="flex-1 justify-center items-center overflow-y-scroll">
+        <main className="bg-gray-200 flex-1 justify-center items-center overflow-y-scroll">
           <div className="flex justify-center flex-row w-full h-full overflow-y-scroll">
             <NavigationPanel type="votingevents" />
 
@@ -98,7 +98,7 @@ const VotingEventCategories = () => {
       {categoryStates.showCreate && <CreateCategoty />}
       {categoryStates.showShare && <CategoryShare />}
       {categoryStates.showSettings && <CategorySettings />}
-    
+
     </>
   )
 }

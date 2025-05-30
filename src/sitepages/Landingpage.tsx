@@ -2,8 +2,8 @@
 import { NavLink } from "react-router-dom";
 
 //components
-import PageFooter from "../components/PageComponents/PageFooter";
-import PageHeader from "../components/PageComponents/PageHeader";
+import PageFooter from "../components/ClientPageComponents/PageFooter";
+import PageHeader from "../components/ClientPageComponents/PageHeader";
 
 //icons
 import { IoIosArrowDropdownCircle } from "react-icons/io";
@@ -18,7 +18,7 @@ const Landingpage = () => {
     <>
       <PageHeader type="landingPage" />
 
-      <main>
+      <main className="bg-gray-200">
         <div className="landing-heroSection">
           <h1 className="font-titan text-black text-6xl"><span className="text-[#0C35BC]">ELECTiFY</span> DECiSiONS</h1>
           <h2 className="font-titan text-black text-6xl">THROUGH VOTES</h2>
