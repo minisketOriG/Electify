@@ -3,10 +3,10 @@
 import CategoryCard from "@/components/VoterEventComponent/CategoryCard"
 import PageFooter from "@/components/VoterPageComponents/PageFooter"
 import PageHeader from "@/components/VoterPageComponents/PageHeader"
+import { HiCurrencyDollar } from "react-icons/hi"
 
 
 const EventCheckout = () => {
-
 
     return (
         <>
@@ -15,14 +15,17 @@ const EventCheckout = () => {
 
 
                 <main className="w-full flex justify-center flex-col p-10">
-                    <div className="w-full">
-                        <h1 className="bg-black flex items-center text-white font-poppins font-semibold text-[16px] p-4">
+                    <div className="w-full font-poppins ">
+                        <h1 className="bg-black flex items-center text-white font-medium text-[16px] p-4">
                             Gambisa Awards
                         </h1>
 
                         <hr className="my-4" />
 
-                        <h2 className="font-poppins font-semibold text-[20px]">Cost-based Voting</h2>
+                        <h2 className="flex justify-start items-center font-bold text-[20px]">
+                            <HiCurrencyDollar className="w-[30px] h-[30px] mr-2"/>
+                            Cost-based Voting
+                        </h2>
                     </div>
 
                     <div className="w-full flex justify-center items-center flex-col mt-5">

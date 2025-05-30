@@ -32,7 +32,7 @@ const PageFooter = () => {
                     <span className="font-extrabold">Join this platform</span>
 
                     <button onClick={handleSignUpRedirect} className="w-[150px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-2 rounded-[10px] border-2 border-[#0C35BC] 
-                        text-[14px] font-poppins font-semibold cursor-pointer hover:bg-black hover:text-[#0C35BC] transition-all duration-200">
+                        text-[14px] font-poppins font-bold cursor-pointer hover:bg-black hover:text-[#0C35BC] transition-all duration-200">
                         {isLoading && <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" />}
                         Join Now
                     </button>
