@@ -11,4 +11,3 @@ export enum reqtype {
     required = "required",
     optional = "optional"
 }
-

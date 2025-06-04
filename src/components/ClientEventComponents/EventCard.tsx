@@ -1,5 +1,4 @@
 
-
 import { FaBookmark, FaRegEye, FaSpinner } from "react-icons/fa6"
 import { IoShareSocialSharp, IoSettingsSharp } from "react-icons/io5"
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
@@ -16,7 +15,7 @@ const EventCard = (props: EventCardProps) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-   
+
     const [isShowSettingsLoading, setShowSettingsLoading] = useState<boolean>(false)
     const [isShowShareLoading, setShowShareLoading] = useState<boolean>(false)
     const [isViewEvent, setIsViewEvent] = useState<boolean>(false)
@@ -59,12 +58,12 @@ const EventCard = (props: EventCardProps) => {
 
     return (
         <>
-            <div className="bg-white w-5/6 flex justify-around items-center flex-row px-2 py-5 rounded-[10px] shadow-[0px_0px_2px_white]">
-                <div className="flex justify-center items-center">
-                    <FaBookmark className="w-[40px] h-[40px]" />
+            <div className="bg-white w-5/6 flex justify-between items-center flex-row p-5 rounded-[10px] shadow-[0px_0px_2px_white]">
+                <div className="flex m-3">
+                    <FaBookmark className="w-[40px] h-[40px] mr-4" />
                 </div>
 
-                <div className="w-[50%] flex flex-col">
+                <div className="w-full flex justify-start flex-col">
                     <span className="font-poppins font-bold my-[5px]">Event Name</span>
                     <span className="font-poppins font-semibold my-[5px]">Event ID</span>
                 </div>
@@ -93,7 +92,7 @@ const EventCard = (props: EventCardProps) => {
                     </button>
 
 
-                    <button onClick={openCatergoryPage} className="bg-[#0C35BC] w-[160px] flex justify-center items-center text-white px-4 py-2 rounded-[5px] border-2 border-[#0C35BC] 
+                    <button onClick={openCatergoryPage} className="bg-[#0C35BC] w-[180px] flex justify-center items-center text-white px-4 py-2 rounded-[5px] border-2 border-[#0C35BC] 
                           text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[12px] hover:text-[#0C35BC] transition-all duration-200">
                         {isViewEvent ?
                             <FaSpinner className="w-[15px] h-[15px] mr-2 animate-spin" /> :
