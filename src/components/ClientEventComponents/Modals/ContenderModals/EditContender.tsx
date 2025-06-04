@@ -13,6 +13,9 @@ import { IoClose } from "react-icons/io5"
 import { PiCursorClickFill } from "react-icons/pi"
 import { FaUserEdit } from "react-icons/fa"
 
+//supportfunctions
+import { handleImagePicker, handleImageChange } from "@/supportfunctions/imagePicker"
+import { handleEditContender } from "@/supportfunctions/condenterDataHandlers"
 
 
 const EditContender = () => {
@@ -38,67 +41,10 @@ const EditContender = () => {
   const imagePickerRef = useRef<HTMLInputElement | null>(null)
   const imageHolderRef = useRef<HTMLImageElement | null>(null)
 
-  const handleImagePicker = () => {
-    imagePickerRef.current?.click()
-  }
-
-  const handleImageChange = () => {
-    const file = imagePickerRef.current?.files?.[0];
-    setIsLoadingPic(true)
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const imgElement = imageHolderRef.current;
-        if (imgElement) {
-          imgElement.src = reader.result as string;
-          setIsLoadingPic(false)
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const handleAddContender = () => {
-    setIsLoading(true)
-
-    const variableSections = [...document.querySelectorAll("#variableSetter")];
-    const variableInputs = [...document.querySelectorAll("#variableSetter input")];
-
-    setTimeout(() => {
-      const tempDetails: Record<string, string | number | null> = {};
-      let noErrors: boolean = true;
-
-      contenderVariables.forEach((variable, index) => {
-        const inputcontainer = variableSections[index] as HTMLDivElement;
-        const input = variableInputs[index] as HTMLInputElement;
-        const value = input.value.trim() as string | number | null;
-
-        inputcontainer.classList.remove("border-red-500");
-
-        if ((variable.requirement === reqtype.default || variable.requirement === reqtype.required) && !value) {
-          inputcontainer.classList.add("border-red-500");
-          setIsLoading(false);
-          noErrors = false;
-          return;
-        }
-
-        if (value) {
-          tempDetails[variable.name] = value;
-        }
-      });
-
-
-      if (noErrors) {
-        setIsLoading(false);
-        console.log("Contender Details:", tempDetails);
-      }
-
-    }, 2000);
-  }
-
+  
 
   return (
     <>
@@ -122,7 +68,7 @@ const EditContender = () => {
             <section className="w-2/5 flex justify-center items-center flex-col ">
               <h1 className="font-poppins font-bold text-[15px] my-2 mt-4">Contender Image</h1>
 
-              <button onClick={handleImagePicker} className="flex justify-center items-center bg-[#0C35BC] w-[280px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-1 py-2 rounded-[10px]
+              <button onClick={() => handleImagePicker(imagePickerRef)} className="flex justify-center items-center bg-[#0C35BC] w-[280px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-1 py-2 rounded-[10px]
                             hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
                 <PiCursorClickFill className="w-[20px] h-[20px] mr-2" />
                 Select Contender Image
@@ -137,7 +83,7 @@ const EditContender = () => {
                   </div>
                 }
 
-                <input ref={imagePickerRef} onChange={handleImageChange} type="file" name="" hidden />
+                <input ref={imagePickerRef} onChange={() => handleImageChange(imagePickerRef, imageHolderRef, setIsLoadingPic)} type="file" name="" hidden />
               </section>
 
             </section>
@@ -170,7 +116,7 @@ const EditContender = () => {
             </section>
           </div>
 
-          <button onClick={handleAddContender} className="flex justify-center items-center bg-[#0C35BC] w-[340px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-3 py-3 mt-4 rounded-[10px]
+          <button onClick={() => handleEditContender(contenderVariables,setIsLoading)} className="flex justify-center items-center bg-[#0C35BC] w-[340px] cursor-pointer text-[14px] text-white border-2 border-[#0C35BC] font-poppins font-semibold px-3 py-3 mt-4 rounded-[10px]
                             hover:bg-white hover:text-[#0C35BC] hover:font-bold transition-all duration-200" type="button">
             {isLoading &&
               <FaSpinner className="w-[18px] h-[18px] mr-2 animate-spin" />

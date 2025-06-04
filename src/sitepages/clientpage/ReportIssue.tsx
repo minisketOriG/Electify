@@ -16,6 +16,8 @@ const ReportIssue = () => {
     }, 3000)
   }
 
+
+
   return (
     <>
       <div className="flex justify-center flex-col w-full h-screen">

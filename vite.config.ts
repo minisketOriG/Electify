@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 
-export default defineConfig(({ command }) =>{
+export default defineConfig(({ command }) => {
 
   const config = {
     plugins: [
@@ -21,9 +21,10 @@ export default defineConfig(({ command }) =>{
     }
   };
 
-if (command !== 'serve') {
+  if (command !== 'serve') {
     config.base = '/Electify/';
-}
+  }
 
-return config;
+  return config;
+  
 })

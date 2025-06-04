@@ -69,7 +69,7 @@
 }
 
 .tableHead{
-    @apply bg-[#0C35BC] border border-black text-center text-white font-poppins font-bold text-[12px] py-2;
+    @apply bg-[#0C35BC] border border-black text-center text-white font-poppins font-bold text-[12px] h-[50px];
 }
 
 .tableData{

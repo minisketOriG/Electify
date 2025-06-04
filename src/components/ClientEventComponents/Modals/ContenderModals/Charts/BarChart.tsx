@@ -13,7 +13,7 @@ const BarChart = () => {
 
       setTimeout(() => {
          setIsLoadingChart(false)
-      }, 3000)
+      }, 1000)
    }, [])
 
    return (

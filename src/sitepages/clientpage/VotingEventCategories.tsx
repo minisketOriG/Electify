@@ -14,9 +14,9 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import CategoryCard from "@/components/ClientEventComponents/CategoryCard"
 import NavigationPanel from "@/components/ClientPageComponents/NavigationPanel"
 import PageHeader from "@/components/ClientPageComponents/PageHeader"
-import CreateCategoty from "@/components/Modals/CategoryModals/CreateCategoty";
-import CategoryShare from "@/components/Modals/CategoryModals/CategoryShare";
-import CategorySettings from "@/components/Modals/CategoryModals/CategorySettings";
+import CreateCategoty from "@/components/ClientEventComponents/Modals/CategoryModals/CreateCategoty";
+import CategoryShare from "@/components/ClientEventComponents/Modals/CategoryModals/CategoryShare";
+import CategorySettings from "@/components/ClientEventComponents/Modals/CategoryModals/CategorySettings";
 
 
 const VotingEventCategories = () => {
@@ -68,10 +68,10 @@ const VotingEventCategories = () => {
               </div>
 
               <div className="w-full flex justify-center items-center my-5 space-x-5">
-                <button onClick={showCreateCategory} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showCreateCategory} className="w-[450px] h-[60px] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateCatShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" /> :
                     <IoMdAddCircle className="w-[30px] h-[30px] mr-2" />
                   }
                   Add new category

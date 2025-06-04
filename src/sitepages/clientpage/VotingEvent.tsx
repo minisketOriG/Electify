@@ -9,9 +9,9 @@ import { FaSpinner } from 'react-icons/fa6';
 import NavigationPanel from '@/components/ClientPageComponents/NavigationPanel';
 import PageHeader from '@/components/ClientPageComponents/PageHeader';
 import EventCard from '@/components/ClientEventComponents/EventCard';
-import CreateEvent from '@/components/Modals/EventModals/CreateEvent';
-import EventSettings from '@/components/Modals/EventModals/EventSettings';
-import EventShareCard from '@/components/Modals/EventModals/EventShare';
+import CreateEvent from '@/components/ClientEventComponents/Modals/EventModals/CreateEvent';
+import EventSettings from '@/components/ClientEventComponents/Modals/EventModals/EventSettings';
+import EventShareCard from '@/components/ClientEventComponents/Modals/EventModals/EventShare';
 
 //stateHandlers
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,10 +34,6 @@ const VotingEvent = () => {
     }, 1000)
   }
 
-
-
-
-
   return (
     <>
       <div className="flex flex-col w-full h-screen overflow-hidden">
@@ -52,10 +48,10 @@ const VotingEvent = () => {
               <hr className="my-2" />
 
               <div className="w-full flex justify-center items-center mt-10">
-                <button onClick={showCreateEvent} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showCreateEvent} className="w-[450px] h-[60px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 rounded-[10px] border-2 border-[#0C35BC] 
                    text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <FaSpinner className="w-[20px] h-[20px] mr-4 animate-spin" /> :
                     <IoMdAddCircle className="w-[30px] h-[30px] mr-2" />
                   }
                   Create new event

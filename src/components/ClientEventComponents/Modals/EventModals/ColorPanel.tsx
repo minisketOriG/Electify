@@ -1,7 +1,7 @@
 
 import { useState } from "react"
-import { EventColorPanelProps } from "../../../interfaces/interfaces"
-import { colors } from "../../../utils/DataUtils"
+import { EventColorPanelProps } from "../../../../interfaces/interfaces"
+import { colors } from "../../../../utils/DataUtils"
 
 
 const ColorPanel = (props: EventColorPanelProps) => {
@@ -17,7 +17,7 @@ const ColorPanel = (props: EventColorPanelProps) => {
     return (
         <>
             <section className="w-[95%] flex justify-center items-center flex-col mt-2">
-                <p className="w-full my-2 font-poppins font-semibold text-[14px]">Category Mark Color</p>
+                <p className="w-full my-2 font-poppins font-semibold text-[14px]">Event Flag Color</p>
 
                 <div className="flex justify-center items-center flex-row space-x-5">
                     {colors?.map((item, index) => (

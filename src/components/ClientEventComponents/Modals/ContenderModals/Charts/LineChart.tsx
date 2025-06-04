@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from "react"
 import { LuLoaderPinwheel } from "react-icons/lu"
 
@@ -11,7 +13,7 @@ const LineChart = () => {
 
     setTimeout(() => {
       setIsLoadingChart(false)
-    }, 3000)
+    }, 1000)
   }, [])
 
   return (

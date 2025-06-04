@@ -18,9 +18,9 @@ import PageHeader from '../../components/ClientPageComponents/PageHeader'
 
 //statehandlers
 import { setShowCreate, setShowMetrics } from '@/store/DataSlides/ContenderPageStatesSlide'
-import AddContender from '@/components/Modals/ContenderModals/AddContender'
-import EditContender from '@/components/Modals/ContenderModals/EditContender'
-import ContenderStat from '@/components/Modals/StatisticsModals/ContenderStat'
+import AddContender from '@/components/ClientEventComponents/Modals/ContenderModals/AddContender'
+import EditContender from '@/components/ClientEventComponents/Modals/ContenderModals/EditContender'
+import ContenderStat from '@/components/ClientEventComponents/Modals/ContenderModals/ContenderStat'
 
 
 
@@ -70,18 +70,18 @@ const VotingCategoryContenders = () => {
               <hr className="my-2" />
 
               <div className="w-full flex justify-center items-center my-4 space-x-5">
-                <button onClick={showCreateContender} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showCreateContender} className="w-[450px] h-[60px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isCreateConShowLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
                     <IoMdAddCircle className="w-[30px] h-[30px] mr-2" />
                   }
                   Create new contender
                 </button>
-                <button onClick={showMetrics} className="w-[450px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
+                <button onClick={showMetrics} className="w-[450px] h-[60px] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-3 mt-10 rounded-[10px] border-2 border-[#0C35BC] 
                  text-[16px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[14px] hover:text-[#0C35BC] transition-all duration-200">
                   {isShowMetricsLoading ?
-                    <FaSpinner className="w-[20px] h-[20px] mr-2 animate-spin" /> :
+                    <FaSpinner className="w-[20px] h-[20px] mr-5 animate-spin" /> :
                     <FaChartSimple className="w-[30px] h-[30px] mr-2" />
                   }
                   View Voting Metrics
