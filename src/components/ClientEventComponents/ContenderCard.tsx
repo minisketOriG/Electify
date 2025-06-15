@@ -49,10 +49,10 @@ const ContenderCard = (props: { id: number; name: string; age: number; role: str
                 </section>
 
                 <section className="w-full flex justify-center items-center">
-                    <button onClick={showEditContender} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white text-xl px-5 py-2 my-4 rounded-[10px] border-2 border-[#0C35BC] 
+                    <button onClick={showEditContender} className="w-[90%] bg-[#0C35BC] flex justify-center items-center text-white px-5 py-2 my-4 rounded-[10px] border-2 border-[#0C35BC] 
                          text-[14px] font-poppins font-semibold cursor-pointer hover:bg-white hover:text-[12px] hover:text-[#0C35BC] transition-all duration-200">
                         {isEditConShowLoading ?
-                            <FaSpinner className="w-[18px] h-[18px] mr-2 animate-spin" /> :
+                            <FaSpinner className="w-[15px] h-[15px] mr-2 animate-spin" /> :
                             <MdModeEdit className="w-[20px] h-[20px] mr-2" />
                         }
                         Edit Contender Details
